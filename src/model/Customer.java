@@ -91,11 +91,21 @@ public class Customer {
 	}
 	
 	@Override
+	public int hashCode() {
+		return this.getEmail().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Customer c = (Customer) obj;
+		return this.getEmail().equals(c.getEmail());
+	}
+
+	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", email=" + email
-				+ ", password=" + password + ", dateOfBirth="
-				+ dateOfBirth + "]";
+				+ ", dateOfBirth=" + dateOfBirth + "]";
 	}
 	
 }

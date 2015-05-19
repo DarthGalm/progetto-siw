@@ -21,7 +21,7 @@ import java.util.*;
 	public Address(){
 	}
 	
-	public Address(String street,String city,String state, String zipcode,String country){
+	public Address(String street, String city, String state, String zipcode, String country){
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -76,22 +76,24 @@ import java.util.*;
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.street.hashCode()+this.zipcode.hashCode();
+	}
+	
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		Address a = (Address) obj;
+		return this.getStreet().equals(a.getStreet())&& this.getZipcode().equals(a.getZipcode());
+	}
+
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", street=" + street + ", city=" + city
 				+ ", state=" + state + ", zipcode=" + zipcode + ", country="
 				+ country + "]";
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + ((country == null) ? 0 : country.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((street == null) ? 0 : street.hashCode());
-		result = prime * result + ((zipcode == null) ? 0 : zipcode.hashCode());
-		return result;
 	}
 }
