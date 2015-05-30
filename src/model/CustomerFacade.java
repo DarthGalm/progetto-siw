@@ -12,7 +12,7 @@ import java.util.List;
 
 @Stateless
 public class CustomerFacade {
-	@PersistenceContext(unitName = "db_progetto")
+	@PersistenceContext(unitName = "progetto-unit")
     private EntityManager em;
 
 	public Customer createCustomer(String firstname, String lastname, Date dateOfBirth, String email, String password, Address address ) {
