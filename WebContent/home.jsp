@@ -16,6 +16,7 @@
 			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registrati</a></li>
 			<li><h:form>
 				</h:form></li>
+
 		</ul>
 	</f:view>
 </body>

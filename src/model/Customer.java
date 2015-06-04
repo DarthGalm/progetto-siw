@@ -14,24 +14,24 @@ public class Customer {
 	@Column(nullable = false)
 	private String firstname;
 	private String lastname;
+	private String dateOfBirth;
 	private String email;
 	private String password;
-	@Temporal (TemporalType.DATE)
-	private Date dateOfBirth;
 	
-	@OneToOne
-	@JoinColumn(name="address_fk")
-	private Address address;
+//	@OneToOne
+//	@JoinColumn(name="address_fk")
+//	private Address address;
 	
 	public Customer(){
 	}
 	
-	public Customer(String firstname, String lastname, String email, String password, Date dateOfBirth){
+	public Customer(String firstname, String lastname, String email, String password, String dateOfBirth){
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.dateOfBirth = dateOfBirth;
 		this.email = email;
 		this.password = password;
-		this.dateOfBirth = dateOfBirth;
+		
 	 }
 
 	public Long getId() {
@@ -74,21 +74,21 @@ public class Customer {
 		this.password = password;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 	
 	@Override
 	public int hashCode() {

@@ -18,18 +18,22 @@ public class CustomerController {
 	private Long id;
 	private String firstname;
 	private String lastname ;
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String email;
 	private String password;
 	private Customer customer;
-	private Address address;
-	
+
 	@EJB
 	private CustomerFacade customerFacade;
 	
 	public String createCustomer() {
-		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password, address);
+		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password);
 		return "customer"; 
+	}
+	
+	public String findCustomer() {
+		this.customer = customerFacade.getCustomer(id);
+		return "customer";
 	}
 
 	public Long getId() {
@@ -56,11 +60,11 @@ public class CustomerController {
 		this.lastname = lastname;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -88,13 +92,13 @@ public class CustomerController {
 		this.customer = customer;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 	public CustomerFacade getCustomerFacade() {
 		return customerFacade;
