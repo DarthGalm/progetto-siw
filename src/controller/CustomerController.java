@@ -28,7 +28,7 @@ public class CustomerController {
 	
 	public String createCustomer() {
 		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password);
-		return "customer"; 
+		return "completedRegistration"; 
 	}
 	
 	public String findCustomer() {

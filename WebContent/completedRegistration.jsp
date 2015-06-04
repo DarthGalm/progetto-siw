@@ -10,20 +10,13 @@
 <body>
 <f:view>
 <h1>Registrazione effettuata con successo</h1>
-<h:form>
-<table>
-	<tr>
-		<th>Name</th><th>Email</th>
-	</tr>
-	<c:forEach var="customer" items="#{customerController.createCustomer}">
-		<tr><td>
-		<h:commandLink action="#{customerController.findCustomer}" value="#{customer.firstname}">
-			<f:param name="id" value="#{customer.id}" />
-		</h:commandLink>
-		</td><td>${customer.email}</td></tr>
-	</c:forEach>
-</table>
-</h:form>
+
+
+<div>Nome: ${customerController.customer.firstname}</div>
+<div>Cognome: ${customerController.customer.lastname}</div>
+<div>Data di nascita: ${customerController.customer.dateOfBirth}</div>
+<div>Indirizzo eMail: ${customerController.customer.email}</div>
+<div>Address Placeholder: </div>
 
 </f:view>
 </body>
