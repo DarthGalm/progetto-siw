@@ -22,19 +22,27 @@ public class CustomerController {
 	private String email;
 	private String password;
 	private Customer customer;
-
+	private String street;
+	private String city;
+	private String state;
+	private String zipcode;
+	private String country;
+	private Address address;
+	
+	
 	@EJB
 	private CustomerFacade customerFacade;
 	
 	public String createCustomer() {
-		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password);
+		this.address = customerFacade.createAddress(street, city, state, zipcode, country);
+		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password, address);
 		return "completedRegistration"; 
 	}
 	
-	public String findCustomer() {
-		this.customer = customerFacade.getCustomer(id);
-		return "customer";
-	}
+//	public String findCustomer() {
+//		this.customer = customerFacade.getCustomer(id);
+//		return "customer";
+//	}
 
 	public Long getId() {
 		return id;
@@ -91,14 +99,54 @@ public class CustomerController {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
+	public String getStreet() {
+		return street;
+	}
 
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public CustomerFacade getCustomerFacade() {
 		return customerFacade;

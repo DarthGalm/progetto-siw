@@ -14,24 +14,29 @@ public class Customer {
 	
 	@Column(nullable = false)
 	private String firstname;
+	@Column(nullable = false)
 	private String lastname;
+	@Column(nullable = false)
 	private String dateOfBirth;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
 	
-//	@OneToOne
-//	@JoinColumn(name="address_fk")
-//	private Address address;
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinColumn(name="address_fk")
+	private Address address;
 	
 	public Customer(){
 	}
 	
-	public Customer(String firstname, String lastname, String email, String password, String dateOfBirth){
+	public Customer(String firstname, String lastname, String dateOfBirth, String email, String password, Address address){
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.dateOfBirth = dateOfBirth;
 		this.email = email;
 		this.password = password;
+		this.address = address;
 		
 	 }
 
@@ -83,13 +88,13 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	
 	@Override
 	public int hashCode() {

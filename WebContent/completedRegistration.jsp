@@ -16,7 +16,13 @@
 <div>Cognome: ${customerController.customer.lastname}</div>
 <div>Data di nascita: ${customerController.customer.dateOfBirth}</div>
 <div>Indirizzo eMail: ${customerController.customer.email}</div>
-<div>Address Placeholder: </div>
+<br />
+<div>Indirizzo: ${customerController.customer.address.street}</div>
+<div>Citta': ${customerController.customer.address.city}</div>
+<div>Provincia: ${customerController.customer.address.state}</div>
+<div>CAP: ${customerController.customer.address.zipcode}</div>
+<div>Paese: ${customerController.customer.address.country}</div>
+
 
 </f:view>
 </body>

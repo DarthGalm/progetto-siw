@@ -15,9 +15,14 @@ public class CustomerFacade {
 	
 	@PersistenceContext(unitName = "progetto-unit")
     private EntityManager em;
+	
+	public Address createAddress(String street, String city, String state, String zipcode, String country) {
+		Address address = new Address(street, city, state, zipcode, country);
+		return address;
+	}
 
-	public Customer createCustomer(String firstname, String lastname, String dateOfBirth, String email, String password) {
-		Customer customer = new Customer(firstname, lastname, dateOfBirth, email, password);
+	public Customer createCustomer(String firstname, String lastname, String dateOfBirth, String email, String password, Address address) {
+		Customer customer = new Customer(firstname, lastname, dateOfBirth, email, password, address);
 		em.persist(customer);
 		return customer;
 	}

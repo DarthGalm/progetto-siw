@@ -5,11 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>INSERISCI I TUOI DATI</title>
+<title>Registrazione</title>
 </head>
 <body>
 <f:view>
 <h:form>
+	<h1>Inserisci i tuoi dati</h1>
+	<br />
+	
     <div>Nome: <h:inputText value="#{customerController.firstname}" 
                      required="true"
                      requiredMessage="Il nome e' un campo obbligatorio"
@@ -31,11 +34,44 @@
                      requiredMessage="L'email e' un campo obbligatorio"
                      id="email"/> <h:message for="email" />
 	</div>
-    <div>Password: <h:inputText value="#{customerController.password}" 
+    <div>Password: <h:inputSecret value="#{customerController.password}" 
     				required="true"
                      requiredMessage="La password e' un campo obbligatorio"
                      id="password"/> <h:message for="password" />
     </div>
+    
+    <br /> 
+    
+    <h2>Inserisci il tuo indirizzo completo</h2>
+    
+    <div>Via/Piazza: <h:inputText value="#{customerController.street}"
+    				required="true"
+    				requiredMessage="L' indirizzo e' un campo obbligatorio"
+    				id="street"/> <h:message for="street" /> 
+    </div> 
+    <div>Citta': <h:inputText value="#{customerController.city}"
+    				required="true"
+    				requiredMessage="La citta' e' un campo obbligatorio"
+    				id="city"/> <h:message for="city" /> 
+    </div>
+    <div>Stato/Provincia: <h:inputText value="#{customerController.state}"
+    				required="true"
+    				requiredMessage="la provincia e' un campo obbligatorio"
+    				id="state"/> <h:message for="state" /> 
+    </div>  
+    <div>CAP: <h:inputText value="#{customerController.zipcode}"
+    				required="true"
+    				requiredMessage="Il CAP e' un campo obbligatorio"
+    				id="zipcode"/> <h:message for="zipcode" /> 
+    </div> 
+    <div>Paese: <h:inputText value="#{customerController.country}"
+    				required="true"
+    				requiredMessage="Il paese e' un campo obbligatorio"
+    				id="country"/> <h:message for="country" /> 
+    </div> 
+    
+    <br />
+    
 	<div>
 		<h:commandButton value="Registrati"  action="#{customerController.createCustomer}"/>
 	</div>

@@ -13,9 +13,13 @@ import java.util.*;
 	
 	@Column(nullable = false)
 	private String street;
+	@Column(nullable = false)
 	private String city;
-	private String state;
+	@Column
+	private String state;  //lasciato State, ma in Italia sarebbe provincia
+	@Column(nullable = false)
 	private String zipcode;
+	@Column(nullable = false)
 	private String country; 
 	
 	public Address(){
