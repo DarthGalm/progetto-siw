@@ -13,7 +13,7 @@
 		<h1>Benvenuti nel portale F&G</h1>
 		<ul>
 			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registrati</a></li>
-			<li><a href='<c:url value="/faces/logIn.jsp" />'>Login</a></li>
+			<li><a href='<c:url value="/faces/login.jsp" />'>Login</a></li>
 		</ul>
 	</f:view>
 </body>

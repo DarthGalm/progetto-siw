@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "retrieveCustomerByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")
 public class Customer {
 
 	@Id
@@ -94,6 +95,10 @@ public class Customer {
 	
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public boolean checkPassword(String password) {
+		return this.getPassword().equals(password);
 	}
 	
 	@Override

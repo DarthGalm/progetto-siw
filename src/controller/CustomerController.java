@@ -36,13 +36,20 @@ public class CustomerController {
 	public String createCustomer() {
 		this.address = customerFacade.createAddress(street, city, state, zipcode, country);
 		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password, address);
+		if(customer==null) return "registrationError";
 		return "completedRegistration"; 
 	}
 	
-//	public String findCustomer() {
-//		this.customer = customerFacade.getCustomer(id);
-//		return "customer";
-//	}
+	public String login() {
+		this.customer = customerFacade.login(email, password);
+		if(customer==null) return "loginError";
+		return "loggedUserHome";
+	}
+	
+	public String findCustomer() {
+		this.customer = customerFacade.getCustomer(id);
+		return "customer";
+	}
 
 	public Long getId() {
 		return id;
