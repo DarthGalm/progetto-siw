@@ -23,6 +23,11 @@
 <div>CAP: ${customerController.customer.address.zipcode}</div>
 <div>Paese: ${customerController.customer.address.country}</div>
 
+<br />
+			<li><a href='<c:url value="/faces/home.jsp" />'>Torna alla HOME</a></li>
+
+
+
 
 </f:view>
 </body>
