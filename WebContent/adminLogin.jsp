@@ -6,11 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Errore registrazione!</title>
+<title>Pannello di amministrazione</title>
 </head>
 <body>
-<h2>Errore!</h2>
-<br />
-<h4>Esiste già un utente registrato con questa Email, <a href='<c:url value="/faces/newCustomer.jsp" />'>clicca qui</a> e riprova con una email differente.</h4>
+<f:view>
+	<ul>
+		<li><a href='<c:url value="/faces/insertProduct.jsp"/>'>Inserisci nuovo prodotto</a></li>
+	</ul>
+
+</f:view>
 </body>
 </html>
