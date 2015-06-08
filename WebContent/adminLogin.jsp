@@ -6,14 +6,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pannello di amministrazione</title>
+<title>Login amministratore</title>
 </head>
 <body>
 <f:view>
-	<ul>
-		<li><a href='<c:url value="/faces/insertProduct.jsp"/>'>Inserisci nuovo prodotto</a></li>
-	</ul>
+<h:form>
 
+<h2>Inserisci i dati per il login</h2>
+<br />
+
+<div>Email: <h:inputText value="#{adminController.email}"
+			required="true"
+			requiredMessage="Per favore inserisci la tua e-mail"
+			id="email" /> <h:message for="email" />
+</div>
+
+<div>Password: <h:inputSecret value="#{adminController.password}"
+				required="true"
+				requiredMessage="Per favore inserisci la password"
+				id="password" /> <h:message for="password" />
+</div>
+
+<br />
+
+<div>
+		<h:commandButton value="Accedi"  action="#{adminController.login}"/>
+</div>
+
+</h:form>
 </f:view>
 </body>
 </html>

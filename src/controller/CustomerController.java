@@ -6,6 +6,7 @@ import java.util.List;
 import model.Customer;
 import model.Address;
 import model.CustomerFacade;
+import model.LoginFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -32,6 +33,8 @@ public class CustomerController {
 	
 	@EJB
 	private CustomerFacade customerFacade;
+	@EJB
+	private LoginFacade loginFacade;
 	
 	public String createCustomer() {
 		this.address = customerFacade.createAddress(street, city, state, zipcode, country);
@@ -41,7 +44,7 @@ public class CustomerController {
 	}
 	
 	public String login() {
-		this.customer = customerFacade.login(email, password);
+		this.customer = loginFacade.customerLogin(email, password);
 		if(customer==null) return "loginError";
 		return "loggedUserHome";
 	}
@@ -154,14 +157,5 @@ public class CustomerController {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-	public CustomerFacade getCustomerFacade() {
-		return customerFacade;
-	}
-
-	public void setCustomerFacade(CustomerFacade customerFacade) {
-		this.customerFacade = customerFacade;
-	}
 	
-
 }

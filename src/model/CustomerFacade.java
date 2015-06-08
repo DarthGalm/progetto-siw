@@ -37,18 +37,18 @@ public class CustomerFacade {
 		}
 	}
 	
-	public Customer login(String email, String password) {
-		TypedQuery<Customer> query = em.createNamedQuery("retrieveCustomerByEmail", Customer.class);
-		try{
-		Customer customer = query.setParameter("email", email).getSingleResult();
-		if(customer.checkPassword(password))
-			return customer;
-		else
-			return null;
-		} catch(NoResultException e) {
-			return null;
-		}
-	}
+//	public Customer login(String email, String password) {
+//		TypedQuery<Customer> query = em.createNamedQuery("retrieveCustomerByEmail", Customer.class);
+//		try{
+//		Customer customer = query.setParameter("email", email).getSingleResult();
+//		if(customer.checkPassword(password))
+//			return customer;
+//		else
+//			return null;
+//		} catch(NoResultException e) {
+//			return null;
+//		}
+//	}
 	
 	public Customer getCustomer(Long id) {
 	    Customer customer = em.find(Customer.class, id);

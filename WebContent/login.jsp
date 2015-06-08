@@ -30,7 +30,7 @@
 <br />
 
 <div>
-		<h:commandButton value="Effettua login"  action="#{customerController.login}"/>
+		<h:commandButton value="Accedi"  action="#{customerController.login}"/>
 </div>
 
 </h:form>
