@@ -8,6 +8,8 @@
  	<!--  	<non-jta-data-source>PostgreSQL Database</non-jta-data-source> -->
 		<class>model.Customer</class>
 		<class>model.Address</class>
+		<class>model.Admin</class>
+		<class>model.Product</class>
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
 			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/>

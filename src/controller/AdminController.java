@@ -14,6 +14,7 @@ public class AdminController {
 	private Long id;
 	private String email;
 	private String password;
+	private String name;
 	private Admin admin;
 	
 	@EJB
@@ -47,6 +48,14 @@ public class AdminController {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name=name;
 	}
 
 	public Admin getAdmin() {
