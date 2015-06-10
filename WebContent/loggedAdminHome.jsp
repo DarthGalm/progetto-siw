@@ -17,6 +17,10 @@
  </h:outputFormat>
 </h2>
 
+<ul>
+			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Inserisci nuovo prodotto</a></li>
+</ul>
+
 </f:view>
 <body>
 </html>

@@ -13,15 +13,15 @@ public class Product {
 	@Column(nullable = false)
 	private String code;
 	@Column(nullable = false)
-	private Float price;
+	private String price;
 	@Column(nullable = false)
 	private String description;
 	@Column(nullable = false)
-	private Integer stockQuantity;
+	private String stockQuantity;
 	
 	public Product(){}
 	
-	public Product(String name, String code, Float price, String description, Integer stockQuantity) {
+	public Product(String name, String code, String price, String description, String stockQuantity) {
 		this.name=name;
 		this.code=code;
 		this.price=price;
@@ -53,11 +53,11 @@ public class Product {
 		this.code = code;
 	}
 
-	public Float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -69,11 +69,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public Integer getStockQuantity() {
+	public String getStockQuantity() {
 		return stockQuantity;
 	}
 
-	public void setStockQuantity(Integer stockQuantity) {
+	public void setStockQuantity(String stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
 

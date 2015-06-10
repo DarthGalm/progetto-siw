@@ -14,9 +14,9 @@ public class ProductController {
 	private Long id;
 	private String name;
 	private String code;
-	private Float price;
+	private String price;
 	private String description;
-	private Integer stockQuantity;
+	private String stockQuantity;
 	private Product product;
 	
 	@EJB
@@ -52,11 +52,11 @@ public class ProductController {
 		this.code = code;
 	}
 
-	public Float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -68,11 +68,11 @@ public class ProductController {
 		this.description = description;
 	}
 
-	public Integer getStockQuantity() {
+	public String getStockQuantity() {
 		return stockQuantity;
 	}
 
-	public void setStockQuantity(Integer stockQuantity) {
+	public void setStockQuantity(String stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
 
