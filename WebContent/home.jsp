@@ -14,6 +14,10 @@
 		<ul>
 			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registrati</a></li>
 			<li><a href='<c:url value="/faces/login.jsp" />'>Login</a></li>
+			<li><h:form>
+			<h:commandLink action="#{productController.listProducts}"
+						value="Visualizza Catalogo" />
+						</h:form></li>
 		</ul>
 	<div style='float: right;'><a href='<c:url value="/faces/adminLogin.jsp"/>'>Login Amministratore</a></div>
 	</f:view>

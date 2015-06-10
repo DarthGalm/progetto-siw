@@ -26,4 +26,32 @@ public class ProductFacade {
 		return product;
 	}
 	
+	public List<Product> getAllProducts() {
+		TypedQuery<Product> query = em.createNamedQuery("findAllProducts", Product.class);
+		List <Product> inventory = query.getResultList();
+		return inventory;
+//        CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
+//        cq.select(cq.from(Product.class));
+//        List<Product> products = em.createQuery(cq).getResultList();
+//		return products;
+	}
+	
+	public Product getProduct(Long id) {
+    Product product = em.find(Product.class, id);
+	return product;
+	}
 }
+
+//	public void updateProduct(Product product) {
+//        em.merge(product);
+//	}
+//	
+//    private void deleteProduct(Product product) {
+//        em.remove(product);
+//    }
+//
+//	public void deleteProduct(String code) {
+//        Product product = em.find(Product.class, code);
+//        deleteProduct(product);
+//	}
+//}

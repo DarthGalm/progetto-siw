@@ -46,9 +46,10 @@
     <br /> 
     
 	<div>
-		<h:commandButton value="Registrati"  action="#{productController.createProduct}"/>
+		<h:commandButton value="Inserisci"  action="#{productController.createProduct}"/>
 	</div>
 </h:form>
+
 </f:view>
 </body>
 </html>

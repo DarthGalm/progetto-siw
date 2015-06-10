@@ -3,6 +3,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "findAllProducts", query = "SELECT p FROM Product p")
 public class Product {
 	
 	@Id 

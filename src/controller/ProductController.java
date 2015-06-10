@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import model.ProductFacade;
 import model.Product;
 
@@ -18,6 +20,7 @@ public class ProductController {
 	private String description;
 	private String stockQuantity;
 	private Product product;
+	private List<Product> inventory;
 	
 	@EJB
 	private ProductFacade productFacade;
@@ -28,6 +31,21 @@ public class ProductController {
 		return "completedProductCreation"; 
 	}
 
+	public String listProducts() { 
+		this.inventory = productFacade.getAllProducts();
+		return "inventory"; 
+	}
+	
+	public String findProduct() {
+		this.product = productFacade.getProduct(id);
+		return "completedProductCreation";
+	}
+	
+//	public String findProduct(String code) {
+//		this.product = productFacade.getProduct(code);
+//		return "completedProductCreation";
+//	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -83,5 +101,14 @@ public class ProductController {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
+	public List<Product> getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(List<Product> inventory) {
+		this.inventory = inventory;
+	}
+	
 
 }
