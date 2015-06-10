@@ -13,11 +13,11 @@
 <h1>Registrazione effettuata con successo</h1>
 
 
-<div>Nome: ${customerController.product.name}</div>
-<div>Codice: ${customerController.customer.code}</div>
-<div>Prezzo: ${customerController.customer.price} €</div>
-<div>Descrizione: ${customerController.customer.description}</div>
-<div>Quantità in magazzino: ${customerController.customer.stockQuantity}</div>
+<div>Nome: ${productController.product.name}</div>
+<div>Codice: ${productController.product.code}</div>
+<div>Prezzo: ${productController.product.price} €</div>
+<div>Quantità in magazzino: ${productController.product.stockQuantity}</div>
+<div>Descrizione: ${productController.product.description}</div>
 <br />
 <a href='<c:url value="/faces/loggedAdminHome.jsp" />'>Torna alla HOME</a>
 
