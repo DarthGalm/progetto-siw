@@ -6,17 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pagina iniziale utente</title>
+<title>Errore Inserimento!</title>
 </head>
-<body>
 <f:view>
-
-<h2>
-<h:outputFormat value="Benvenuto, {0}.">
-	<f:param value="#{customerController.customer.firstname}" />
-</h:outputFormat>
-</h2>
-
-</f:view>
+<body>
+<h2>Errore!</h2>
+<br />
+<h4>C'è stato qualche problema nell' inserimento, <a href='<c:url value="/faces/newProduct.jsp" />'>clicca qui</a> e riprova.</h4>
 </body>
+</f:view>
 </html>
