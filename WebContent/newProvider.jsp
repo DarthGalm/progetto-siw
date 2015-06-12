@@ -14,10 +14,15 @@
 	<h1>Inserisci i dati del fornitore</h1>
 	<br />
 	
-    <div>Nome: <h:inputText value="#{providerController.name}" 
+    <div>Nome: <h:inputText value="#{providerController.firstName}" 
                      required="true"
                      requiredMessage="Il nome è un campo obbligatorio"
-                     id="name"/> <h:message for="name" />
+                     id="firstName"/> <h:message for="firstName" />
+	</div>
+	 <div>Cognome: <h:inputText value="#{providerController.lastName}" 
+                     required="true"
+                     requiredMessage="Il cognome è un campo obbligatorio"
+                     id="lastName"/> <h:message for="lastName" />
 	</div>
 	<div>Email: <h:inputText value="#{providerController.email}" 
                      required="true"

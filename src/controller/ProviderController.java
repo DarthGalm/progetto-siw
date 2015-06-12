@@ -16,7 +16,8 @@ public class ProviderController {
 	
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
-	private String name;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String phoneNumber;
 	private String iva;
@@ -34,7 +35,7 @@ public class ProviderController {
 	
 	public String createProvider() {
 		this.address = providerFacade.createAddress(street, city, state, zipcode, country);
-		this.provider = providerFacade.createProvider(name, email, phoneNumber, iva, address);
+		this.provider = providerFacade.createProvider(firstName, lastName, email, phoneNumber, iva, address);
 		if(provider==null) return "providerRegistrationError";
 		return "completedProviderRegistration"; 
 	}
@@ -53,12 +54,20 @@ public class ProviderController {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {

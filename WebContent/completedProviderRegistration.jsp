@@ -13,7 +13,8 @@
 <h1>Registrazione effettuata con successo</h1>
 
 
-<div>Nome: ${providerController.provider.name}</div>
+<div>Nome: ${providerController.provider.firstName}</div>
+<div>Cognome: ${providerController.provider.lastName}</div>
 <div>Email: ${providerController.provider.email}</div>
 <div>Numero di telefono: ${providerController.provider.phoneNumber}</div>
 <div>Partita IVA: ${providerController.provider.iva}</div>
