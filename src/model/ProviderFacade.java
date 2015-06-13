@@ -26,14 +26,14 @@ public class ProviderFacade {
 		return address;
 	}
 
-	public Provider createProvider(String firstName, String lastName, String email, String phoneNumber, String iva, Address address) {
+	public Provider createProvider(String firstName, String lastName, String email, String phoneNumber, String vat, Address address) {
 		TypedQuery<Provider> query = em.createNamedQuery("retrieveProviderByEmail", Provider.class);
 		try{
 			Provider provider = query.setParameter("email", email).getSingleResult();
 			return null;
 		
 		} catch(NoResultException e) {
-		Provider provider = new Provider (firstName, lastName, email, phoneNumber, iva, address);
+		Provider provider = new Provider (firstName, lastName, email, phoneNumber, vat, address);
 		em.persist(provider);
 		return provider; 
 		}
