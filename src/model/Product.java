@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,9 @@ public class Product {
 	private String description;
 	@Column(nullable = false)
 	private String stockQuantity;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	private List<Provider> providers;
 	
 	public Product(){}
 	

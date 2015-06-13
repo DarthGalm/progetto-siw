@@ -21,24 +21,24 @@ public class Provider {
 	@Column (nullable = false)
 	public String phoneNumber;
 	@Column (nullable = false)
-	public String iva;
+	public String vat;
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="address_fk")
 	private Address address;
 	
-//  @ManyToMany
-//	private List<Product> inventory;
+	@ManyToMany
+	private List<Product> catalog;
 	
 	public Provider(){
 	}
 	
-	public Provider(String firstName, String lastName, String email, String phoneNumber, String iva, Address address){
+	public Provider(String firstName, String lastName, String email, String phoneNumber, String vat, Address address){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.iva = iva;
+		this.vat = vat;
 		this.address = address;
 	}
 
@@ -83,12 +83,12 @@ public class Provider {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getIva() {
-		return iva;
+	public String getVat() {
+		return vat;
 	}
 
-	public void setIva(String iva) {
-		this.iva = iva;
+	public void setVat(String vat) {
+		this.vat = vat;
 	}
 
 	public Address getAddress() {
@@ -99,13 +99,13 @@ public class Provider {
 		this.address = address;
 	}
 	
-//	public List<Product> getInventory() {
-//	return inventory;
-//}
-//
-//public void setInventory(List<Product> inventory) {
-//	this.inventory = inventory;
-//}
+	public List<Product> getCatalog() {
+		return catalog;
+	}
+
+	public void setCatalog(List<Product> catalog) {
+		this.catalog = catalog;
+	}
 
 	@Override
 	public int hashCode() {
@@ -121,7 +121,7 @@ public class Provider {
 	@Override
 	public String toString() {
 		return "Provider [id=" + id + ", firstName=" + firstName + ",  lastName=" + lastName + ", email="
-				+ email + ", phoneNumber=" + phoneNumber + ", iva=" + iva + "]";
+				+ email + ", phoneNumber=" + phoneNumber + ", iva=" + vat + "]";
 	}
 
 	

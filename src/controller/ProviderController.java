@@ -20,7 +20,7 @@ public class ProviderController {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private String iva;
+	private String vat;
 	private Provider provider;
 	private String street;
 	private String city;
@@ -35,7 +35,7 @@ public class ProviderController {
 	
 	public String createProvider() {
 		this.address = providerFacade.createAddress(street, city, state, zipcode, country);
-		this.provider = providerFacade.createProvider(firstName, lastName, email, phoneNumber, iva, address);
+		this.provider = providerFacade.createProvider(firstName, lastName, email, phoneNumber, vat, address);
 		if(provider==null) return "providerRegistrationError";
 		return "completedProviderRegistration"; 
 	}
@@ -86,12 +86,12 @@ public class ProviderController {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getIva() {
-		return iva;
+	public String getVat() {
+		return vat;
 	}
 
-	public void setIva(String iva) {
-		this.iva = iva;
+	public void setVat(String vat) {
+		this.vat = vat;
 	}
 
 	public Provider getProvider() {

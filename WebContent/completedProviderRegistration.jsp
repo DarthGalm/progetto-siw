@@ -17,7 +17,7 @@
 <div>Cognome: ${providerController.provider.lastName}</div>
 <div>Email: ${providerController.provider.email}</div>
 <div>Numero di telefono: ${providerController.provider.phoneNumber}</div>
-<div>Partita IVA: ${providerController.provider.iva}</div>
+<div>Partita IVA: ${providerController.provider.vat}</div>
 <br />
 <div>Indirizzo: ${providerController.provider.address.street}</div>
 <div>Città: ${providerController.provider.address.city}</div>

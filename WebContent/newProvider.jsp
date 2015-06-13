@@ -34,10 +34,10 @@
                      required="false" />
 	</div>
 	
-	<div>Partita IVA: <h:inputText value="#{providerController.iva}" 
+	<div>Partita IVA: <h:inputText value="#{providerController.vat}" 
                      required="true"
                      requiredMessage="La partita IVA è un campo obbligatorio"
-                     id="iva"/> <h:message for="iva" />
+                     id="vat"/> <h:message for="vat" />
 	</div>
     <br /> 
     
