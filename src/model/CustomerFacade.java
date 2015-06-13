@@ -21,6 +21,11 @@ public class CustomerFacade {
 	@PersistenceContext(unitName = "progetto-unit")
     private EntityManager em;
 	
+	public String createDateOfBirth(String day, String month, String year) {
+		//String s = "//";
+		return day + "//" + month +"//" + year;
+		
+	}
 	public Address createAddress(String street, String city, String state, String zipcode, String country) {
 		Address address = new Address(street, city, state, zipcode, country);
 		return address;

@@ -7,7 +7,7 @@ import model.ProviderFacade;
 import model.Address;
 import model.Product;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedProperty;
 

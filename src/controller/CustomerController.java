@@ -20,6 +20,9 @@ public class CustomerController {
 	private String firstname;
 	private String lastname ;
 	private String dateOfBirth;
+	private String day;
+	private String month;
+	private String year;
 	private String email;
 	private String password;
 	private Customer customer;
@@ -37,6 +40,7 @@ public class CustomerController {
 	private LoginFacade loginFacade;
 	
 	public String createCustomer() {
+		this.dateOfBirth = customerFacade.createDateOfBirth(day, month, year);
 		this.address = customerFacade.createAddress(street, city, state, zipcode, country);
 		this.customer = customerFacade.createCustomer(firstname, lastname, dateOfBirth, email, password, address);
 		if(customer==null) return "registrationError";
@@ -53,6 +57,8 @@ public class CustomerController {
 		this.customer = customerFacade.getCustomer(id);
 		return "customer";
 	}
+	
+	
 
 	public Long getId() {
 		return id;
@@ -157,5 +163,30 @@ public class CustomerController {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+	
 	
 }

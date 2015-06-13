@@ -25,10 +25,15 @@
                      id="lastname"/> <h:message for="lastname" />
 	</div>
 	
-	<div>Data di Nascita: <h:inputText value="#{customerController.dateOfBirth}" 
-                     required="true"
-                     requiredMessage="La data di nascita è un campo obbligatorio"
-                     id="dateOfBirth"/> <h:message for="dateOfBirth" />
+	 <div>Data di Nascita: <h:inputText value="#{customerController.day}" 
+					required="false"/>
+					/
+					<h:inputText value="#{customerController.month}" 
+					required="false"/>
+				    /
+					<h:inputText value="#{customerController.year}" 
+					required="false"
+					 />
 	</div>
 	<div>Email: <h:inputText value="#{customerController.email}" 
                      required="true"
@@ -38,7 +43,9 @@
     <div>Password: <h:inputSecret value="#{customerController.password}" 
     				required="true"
                      requiredMessage="La password è un campo obbligatorio"
+                     validatorMessage="La password deve avere un minimo di 6 caratteri e un massimo di 20"
                      id="password"/> <h:message for="password" />
+                    
     </div>
     
     <br /> 
