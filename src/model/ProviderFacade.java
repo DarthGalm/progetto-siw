@@ -43,4 +43,9 @@ public class ProviderFacade {
 	    Provider provider = em.find(Provider.class, id);
 		return provider;
 	}
+	
+	public Provider retrieveProviderByVat(String vat) {
+		Provider provider = em.find(Provider.class, vat);
+		return provider;
+	}
 }

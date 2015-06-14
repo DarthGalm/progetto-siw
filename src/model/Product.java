@@ -83,6 +83,14 @@ public class Product {
 	public void setStockQuantity(String stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
+	
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
+	}
 
 	@Override
 	public int hashCode() {

@@ -10,6 +10,7 @@
 </head>
 <body>
 <f:view>
+<h:form>
 
 <h2>
 <h:outputFormat value="Benvenuto, {0}. Qui sono presenti le opzioni di amministrazione">
@@ -20,12 +21,14 @@
 <ul>
 			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Inserisci nuovo prodotto</a></li>
 			<li><a href='<c:url value="/faces/newProvider.jsp" />'>Inserisci un fornitore</a></li>
-			<li><h:form>
+			<li>
 			<h:commandLink action="#{productController.listProducts}"
 						value="Visualizza Catalogo" />
-						</h:form></li>
-</ul>
-
+						</li>
+			<li><h:commandLink value="Associa prodotto a fornitore" action="providerJoinProduct"/></li>
+ </ul>
+ 
+</h:form>
 </f:view>
 <body>
 </html>

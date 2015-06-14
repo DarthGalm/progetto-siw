@@ -26,6 +26,14 @@ public class ProductFacade {
 		return product;
 	}
 	
+
+	public void productJoinProvider(Provider provider, Product product) {
+		List<Provider> providers = product.getProviders();
+		providers.add(provider);
+		product.setProviders(providers);
+		this.updateProduct(product);
+	}
+	
 	public List<Product> getAllProducts() {
 		TypedQuery<Product> query = em.createNamedQuery("findAllProducts", Product.class);
 		List <Product> inventory = query.getResultList();
@@ -40,12 +48,16 @@ public class ProductFacade {
     Product product = em.find(Product.class, id);
 	return product;
 	}
-}
+	
+	public Product retrieveProductByCode(String code) {
+		Product product = em.find(Product.class, code);
+		return product;
+	}
 
-//	public void updateProduct(Product product) {
-//        em.merge(product);
-//	}
-//	
+	public void updateProduct(Product product) {
+        em.merge(product);
+	}
+	
 //    private void deleteProduct(Product product) {
 //        em.remove(product);
 //    }
@@ -54,4 +66,4 @@ public class ProductFacade {
 //        Product product = em.find(Product.class, code);
 //        deleteProduct(product);
 //	}
-//}
+}
