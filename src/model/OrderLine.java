@@ -16,9 +16,11 @@ public class OrderLine {
 	@Column(nullable = false)
 	String productCode;
 	@Column(nullable = false)
-	String quantity;
+	Integer quantity;
 	@Column(nullable = false)
-	String unitPrice;
+	Long unitPrice;
+	@Column(nullable=false)
+	Long totalPrice; 
 	
 	@ManyToOne
 	private Order order;
@@ -30,11 +32,12 @@ public class OrderLine {
 	public OrderLine() {
 	}
 	
-	public OrderLine(String productName, String productCode,String quantity, String unitPrice){
+	public OrderLine(String productName, String productCode, Integer quantity, Long unitPrice){
 		this.productName = productName;
 		this.productCode = productCode;
 		this.quantity = quantity;
 		this.unitPrice = unitPrice;
+		this.totalPrice = quantity*unitPrice;
 	}
 
 	
@@ -62,22 +65,30 @@ public class OrderLine {
 		this.productCode = productCode;
 	}
 
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public String getUnitPrice() {
+	public Long getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(String unitPrice) {
+	public void setUnitPrice(Long unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	
+
+	public Long getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Long totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	public Order getOrder() {
 		return order;
 	}
