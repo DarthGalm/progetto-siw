@@ -38,7 +38,7 @@ public class ProductController {
 	
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
-		return "completedProductCreation";
+		return "productDetails";
 	}
 	
 //	public String findProduct(String code) {

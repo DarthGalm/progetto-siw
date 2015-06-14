@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Nuovo prodotto registrato</title>
+<title>Dettaglio prodotto</title>
 </head>
 <body>
 <f:view>
@@ -21,7 +21,7 @@
 <div>Descrizione: ${productController.product.description}</div>
 <br />
 
-<h:commandLink value="Torna alla Home" action="loggedAdminHome" />
+<h:commandLink value="Torna alla Home" action="loggedUserHome" />
 
 
 

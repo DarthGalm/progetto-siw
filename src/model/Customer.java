@@ -1,7 +1,7 @@
-
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -27,6 +27,9 @@ public class Customer {
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="address_fk")
 	private Address address;
+	
+	@OneToMany(mappedBy="customer")
+	private List<Order> orders;
 	
 	public Customer(){
 	}
@@ -97,6 +100,14 @@ public class Customer {
 		this.address = address;
 	}
 	
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
 	public boolean checkPassword(String password) {
 		return this.getPassword().equals(password);
 	}

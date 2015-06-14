@@ -3,8 +3,10 @@ package model;
 import javax.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Table(name="orders")
 public class Order {
 	
 	@Id 
@@ -13,21 +15,20 @@ public class Order {
 	
 	@Column(nullable = false)
 	private String code;
-	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
-	
-	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date closingTime;
-	
-	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date shippedDate;
 	
 	@ManyToOne
 	private Customer customer;
+	
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy="order")
+	@JoinColumn(name="orders_id")
+	private List<OrderLine> orderLines;
 
 	
 	public Order(){
@@ -81,6 +82,22 @@ public class Order {
 
 	public void setShippedDate(Date shippedDate) {
 		this.shippedDate = shippedDate;
+	}
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
 
 	@Override

@@ -24,8 +24,9 @@ public class OrderLine {
 	private Order order;
 	
 	@OneToOne
+	@JoinColumn(name="product_fk")
 	private Product product;
-	
+
 	public OrderLine() {
 	}
 	
@@ -75,6 +76,22 @@ public class OrderLine {
 
 	public void setUnitPrice(String unitPrice) {
 		this.unitPrice = unitPrice;
+	}
+	
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	@Override
