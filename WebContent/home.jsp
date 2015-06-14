@@ -8,19 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home Page</title>
 </head>
+<f:view>
+<h:form>
 <body>
-	<f:view>
-		<h1>Benvenuti nel portale F&G</h1> 
+<h1>Benvenuti nel portale F&G</h1> 
 		<ul>
-			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registrati</a></li>
-			<li><a href='<c:url value="/faces/login.jsp" />'>Login</a></li>
-			<li><h:form>
-			<h:commandLink action="#{productController.listProducts}"
-						value="Visualizza Catalogo" />
-						</h:form></li>
+			<li><h:commandButton value="Registrati"  action="newCustomer"/></li>
+			<li><h:commandButton value="Login"  action="login"/></li>
+			<li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
 		</ul>
-	<div style='float: right;'><a href='<c:url value="/faces/adminLogin.jsp"/>'>Login Amministratore</a></div>
-	</f:view>
+	<div style='float: right;'><h:commandButton value="Login Amministratore"  action="adminLogin"/></div>
 </body>
+</h:form>
+</f:view>
 </html>
 
