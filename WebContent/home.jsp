@@ -13,11 +13,11 @@
 <body>
 <h1>Benvenuti nel portale F&G</h1> 
 		<ul>
-			<li><h:commandButton value="Registrati"  action="newCustomer"/></li>
-			<li><h:commandButton value="Login"  action="login"/></li>
+			<li><h:commandLink value="Registrati"  action="newCustomer"/></li>
+			<li><h:commandLink value="Login"  action="login"/></li>
 			<li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
 		</ul>
-	<div style='float: right;'><h:commandButton value="Login Amministratore"  action="adminLogin"/></div>
+	<div style='float: right;'><h:commandLink value="Login Amministratore"  action="adminLogin"/></div>
 </body>
 </h:form>
 </f:view>
