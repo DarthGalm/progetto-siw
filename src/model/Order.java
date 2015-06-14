@@ -26,6 +26,10 @@ public class Order {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date shippedDate;
 	
+	@ManyToOne
+	private Customer customer;
+
+	
 	public Order(){
 	}
 	
@@ -86,8 +90,8 @@ public class Order {
 
 	@Override
 	public boolean equals(Object obj) {
-		Product prod = (Product) obj;
-		return this.getCode().equals(prod.getCode());
+		Order order = (Order) obj;
+		return this.getCode().equals(order.getCode());
 	}
 
 	@Override
