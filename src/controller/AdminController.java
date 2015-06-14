@@ -1,6 +1,8 @@
 package controller;
 
 import model.*;
+import model.Provider;
+import model.ProviderFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;

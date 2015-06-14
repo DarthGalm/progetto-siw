@@ -50,8 +50,13 @@ public class ProductFacade {
 	}
 	
 	public Product retrieveProductByCode(String code) {
-		Product product = em.find(Product.class, code);
-		return product;
+		TypedQuery<Product> query = em.createNamedQuery("retrieveProductByCode", Product.class);
+		try{
+			Product product = query.setParameter("code", code).getSingleResult();
+			return product;
+		} catch(NoResultException e) {
+		return null; 
+		}
 	}
 
 	public void updateProduct(Product product) {

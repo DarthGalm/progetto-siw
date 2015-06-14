@@ -29,6 +29,7 @@
 </div>
 
 <h:commandButton value="Esegui" action="#{adminController.providerJoinProduct}"/>
+
 </h:form>
 </f:view>
 </body>

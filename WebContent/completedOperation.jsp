@@ -8,8 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ok</title>
 </head>
+<f:view>
+<h:form>
 <body>
+
 <h1>Operazione riuscita.</h1> 
 <h3><h:commandLink value="Torna alla home" action="loggedAdminHome"/></h3>
+
 </body>
+</h:form>
+</f:view>
 </html>

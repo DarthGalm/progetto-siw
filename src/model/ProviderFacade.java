@@ -1,7 +1,6 @@
 package model;
 
-import model.Provider;
-import model.Address;
+import model.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -45,7 +44,12 @@ public class ProviderFacade {
 	}
 	
 	public Provider retrieveProviderByVat(String vat) {
-		Provider provider = em.find(Provider.class, vat);
-		return provider;
+		TypedQuery<Provider> query = em.createNamedQuery("retrieveProviderByVat", Provider.class);
+		try{
+			Provider provider = query.setParameter("vat", vat).getSingleResult();
+			return provider;
+		} catch(NoResultException e) {
+		return null; 
+		}
 	}
 }

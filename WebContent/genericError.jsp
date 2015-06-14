@@ -8,8 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Errore</title>
 </head>
+<f:view>
+<h:form>
 <body>
 <h1>Woops, c'è stato un problema.</h1> 
 <h3><h:commandLink value="Torna alla home" action="home"/></h3>
 </body>
+</h:form>
+</f:view>
 </html>
