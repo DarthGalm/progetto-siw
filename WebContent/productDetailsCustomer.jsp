@@ -11,6 +11,7 @@
 <body>
 <f:view>
 <h:form>
+
 <h1>Dettagli prodotto</h1>
 
 

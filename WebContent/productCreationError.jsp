@@ -9,10 +9,12 @@
 <title>Errore Inserimento!</title>
 </head>
 <f:view>
+<h:form>
 <body>
 <h2>Errore!</h2>
 <br />
-<h4>C'è stato qualche problema nell' inserimento, <a href='<c:url value="/faces/newProduct.jsp" />'>clicca qui</a> e riprova.</h4>
+<h4>C'è stato qualche problema nell' inserimento,<h:commandLink value="clicca qui" action="newCustomer"/> e riprova.</h4>
+</h:form>
 </body>
 </f:view>
 </html>

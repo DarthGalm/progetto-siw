@@ -11,6 +11,6 @@
 <body>
 <h2>Errore!</h2>
 <br />
-<h4>Esiste già un utente registrato con questa Email, <a href='<c:url value="/faces/newCustomer.jsp" />'>clicca qui</a> e riprova con una email differente.</h4>
+<h4>Esiste già un utente registrato con questa Email,<h:commandLink value="clicca qui" action="newCustomer"/>e riprova con una email differente.</h4>
 </body>
 </html>

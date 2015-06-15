@@ -11,6 +11,9 @@
 <body>
 <f:view>
 <h:form>
+ <div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
+ <li><h:commandButton value="Torna alla Home"  action="loggedAdminHome"/></li>
+
 <h1>Dettagli prodotto</h1>
 
 
@@ -21,7 +24,6 @@
 <div>Descrizione: ${productController.product.description}</div>
 <br />
 
-<h:commandLink value="Torna alla Home" action="loggedAdminHome" />
 
 
 

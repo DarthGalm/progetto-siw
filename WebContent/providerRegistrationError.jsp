@@ -9,8 +9,10 @@
 <title>Errore registrazione!</title>
 </head>
 <body>
+<h:form>
 <h2>Errore!</h2>
 <br />
-<h4>Esiste già un fornitore registrato con questa Email, <a href='<c:url value="/faces/newProvider.jsp" />'>clicca qui</a> e riprova con una email differente.</h4>
+<h4>Esiste già un fornitore registrato con questa Email,<h:commandLink value="clicca qui" action="newProvider"/> e riprova con una email differente.</h4>
+</h:form>
 </body>
 </html>

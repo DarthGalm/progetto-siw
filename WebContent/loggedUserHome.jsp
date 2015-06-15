@@ -11,7 +11,8 @@
 <body>
 <f:view>
 <h:form>
-
+<div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
+ 
 <h2>
 <h:outputFormat value="Benvenuto, {0}.">
 	<f:param value="#{customerController.customer.firstname}" />

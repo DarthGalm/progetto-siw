@@ -9,10 +9,13 @@
 <title>Errore Login!</title>
 </head>
 <f:view>
+<h:form>
 <body>
 <h2>Errore!</h2>
 <br />
-<h4>Email o password errati, <a href='<c:url value="/faces/login.jsp" />'>clicca qui</a> e riprova.</h4>
-</body>
+<h3>Email o password errati,<h:commandLink value="clicca qui" action="login"/> e riprova.</h3>
+
+</h:form>
 </f:view>
+</body>
 </html>

@@ -10,6 +10,9 @@
 </head>
 <body>
 <f:view>
+ <div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
+ <li><h:commandButton value="Torna alla Home"  action="loggedAdminHome"/></li>
+
 <h1>Registrazione effettuata con successo</h1>
 
 
@@ -26,7 +29,7 @@
 <div>Paese: ${providerController.provider.address.country}</div>
 
 <br />
-<a href='<c:url value="/faces/loggedAdminHome.jsp" />'>Torna alla HOME</a>
+
 
 
 

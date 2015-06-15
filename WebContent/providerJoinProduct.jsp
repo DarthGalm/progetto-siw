@@ -12,6 +12,7 @@
 <f:view>
 <h:form>
 
+<div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
 
 <h2>Inserisci i dati richiesti</h2>
 <br />

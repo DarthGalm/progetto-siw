@@ -20,6 +20,8 @@
 
 <h:outputText value="#{adminController.admin.name}"/>
 
+ <div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
+
 <ul>
 			<li><h:commandLink value="Inserisci un nuovo prodotto" action="newProduct" /></li>
 			<li><h:commandLink value="Inserisci un nuovo fornitore" action="newProvider" /></li>
@@ -29,6 +31,8 @@
 						</li>
 			<li><h:commandLink value="Associa prodotto a fornitore" action="providerJoinProduct"/></li>
  </ul>
+ 
+
  
 </h:form>
 </f:view>
