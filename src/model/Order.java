@@ -23,7 +23,7 @@ public class Order {
 	@ManyToOne
 	private Customer customer;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy="order")
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="orders_id")
 	private List<OrderLine> orderLines;
 
