@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import model.*;
 
 import javax.ejb.EJB;
@@ -21,6 +23,7 @@ public class AdminController {
 	private String code;
 	private Product product;
 	private Provider provider;
+	private List<Provider> providers;
 	
 	@EJB
 	private LoginFacade loginFacade;
@@ -39,11 +42,18 @@ public class AdminController {
 	
 	public String providerJoinProduct() {
 		this.provider=providerFacade.retrieveProviderByVat(vat);
-		if(provider==null) return "genericError";		
+		if(provider==null) return "notFoundAdmin";		
 		this.product=productFacade.retrieveProductByCode(code);
-		if(product==null) return "genericError";
+		if(product==null) return "notFoundAdmin";
 		productFacade.productJoinProvider(provider, product);
 		return "completedOperation";
+	}
+	
+	public String findProvidersForProduct() {
+		this.product=productFacade.retrieveProductByCode(code);
+		if(product==null) return "notFoundAdmin";
+		//???
+		return "providersForProduct";
 	}
 
 	public Long getId() {
@@ -125,6 +135,15 @@ public class AdminController {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
+	
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
+	}
+
 
 	public ProductFacade getProductFacade() {
 		return productFacade;

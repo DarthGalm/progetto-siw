@@ -30,6 +30,7 @@
 						value="Visualizza Catalogo" />
 						</li>
 			<li><h:commandLink value="Associa prodotto a fornitore" action="providerJoinProduct"/></li>
+			<li><h:commandLink value="Trova fornitori di un prodotto" action="findProvider"/></li>
  </ul>
  
 
