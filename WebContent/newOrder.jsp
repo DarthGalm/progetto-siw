@@ -14,16 +14,32 @@
 <h:form>
 <table>
 	<tr>
-		<th>Nome</th><th>Prezzo</th>
+		<th>Nome</th><th>Prezzo</th><th>Codice</th> 
 	</tr>
-	<c:forEach var="product" items="#{productController.inventory}">
+	
+		<c:forEach var="product" items="#{productController.inventory}">
 		<tr><td>
 		<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
-		</h:commandLink>
-		</td><td>${product.price}€</td></tr>
+		</h:commandLink></td>
+		<td>${product.price}</td>
+		<td>${product.code}</td>
+		</tr>
+			
 	</c:forEach>
 </table>
+
+<h3>Inserisci il codice del prodotto che vorresti acquistare</h3>
+
+<div>Nome: <h:inputText value="#{OrderController.code}" 
+                     required="true"
+                     requiredMessage="Il codice del prodotto è un campo obbligatorio"
+                     id="code"/> <h:message for="code" />
+	</div>
+	
+	<div>
+		<h:commandButton value="Effettua Ordine"  action="#{orderController.createOrder}"/>
+	</div>
 </h:form>
 
 </f:view>

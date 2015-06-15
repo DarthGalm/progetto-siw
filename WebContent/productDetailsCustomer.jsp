@@ -21,7 +21,7 @@
 <div>Descrizione: ${productController.product.description}</div>
 <br />
 
-
+<h:commandLink value="Torna alla Home" action="loggedUserHome" />
 
 
 

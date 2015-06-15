@@ -16,12 +16,12 @@
 	<tr>
 		<th>Nome</th><th>Prezzo</th>
 	</tr>
-	<c:forEach var="product" items="#{productController.inventory}">
+	<c:forEach var="product" items="#{productController.inventoryCustomer}">
 		<tr><td>
-		<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
+		<h:commandLink action="#{productController.findCustomerProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
 		</h:commandLink>
-		</td><td>${product.price}€</td></tr>
+		</td><td>${product.price}</td></tr>
 	</c:forEach>
 </table>
 </h:form>

@@ -44,6 +44,12 @@ public class ProductFacade {
 //		return products;
 	}
 	
+	public List<Product> getAllProductsCustomer() {
+		TypedQuery<Product> query = em.createNamedQuery("findAllProducts", Product.class);
+		List <Product> inventoryCustomer = query.getResultList();
+		return inventoryCustomer;
+	}
+	
 	public Product getProduct(Long id) {
     Product product = em.find(Product.class, id);
 	return product;

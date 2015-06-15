@@ -10,6 +10,7 @@
 </head>
 <body>
 <f:view>
+<h:form>
 
 <h2>
 <h:outputFormat value="Benvenuto, {0}.">
@@ -17,6 +18,12 @@
 </h:outputFormat>
 </h2>
 
+<ul>
+<li><h:commandLink action="#{productController.listCustomerProducts}" value="Visualizza Catalogo" /></li>
+<li><h:commandLink action="newOrder" value="Acquista un prodotto" /></li>
+		</ul>
+
+</h:form>
 </f:view>
 </body>
 </html>

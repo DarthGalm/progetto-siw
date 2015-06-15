@@ -21,6 +21,7 @@ public class ProductController {
 	private String stockQuantity;
 	private Product product;
 	private List<Product> inventory;
+	private List<Product> inventoryCustomer;
 	
 	@EJB
 	private ProductFacade productFacade;
@@ -39,6 +40,16 @@ public class ProductController {
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
 		return "productDetails";
+	}
+	
+	public String listCustomerProducts() { 
+		this.inventoryCustomer = productFacade.getAllProductsCustomer();
+		return "inventoryCustomer"; 
+	}
+	
+	public String findCustomerProduct() {
+		this.product = productFacade.getProduct(id);
+		return "productDetailsCustomer";
 	}
 	
 //	public String findProduct(String code) {
@@ -109,5 +120,15 @@ public class ProductController {
 	public void setInventory(List<Product> inventory) {
 		this.inventory = inventory;
 	}
+
+	public List<Product> getInventoryCustomer() {
+		return inventoryCustomer;
+	}
+
+	public void setInventoryCustomer(List<Product> inventoryCustomer) {
+		this.inventoryCustomer = inventoryCustomer;
+	}
+	
+	
 	
 }
