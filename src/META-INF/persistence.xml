@@ -11,6 +11,8 @@
 		<class>model.Admin</class>
 		<class>model.Product</class>
 		<class>model.Provider</class>
+		<class>model.Order</class>
+		<class>model.OrderLine</class>
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
 			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/>
