@@ -21,7 +21,6 @@ public class OrderLine {
 	Long unitPrice;
 	@Column(nullable=false)
 	Long totalPrice; 
-	
 	@ManyToOne
 	private Order order;
 	

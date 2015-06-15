@@ -18,8 +18,10 @@
  </h:outputFormat>
 </h2>
 
+<h:outputText value="#{adminController.admin.name}"/>
+
 <ul>
-			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Inserisci nuovo prodotto</a></li>
+			<li><h:commandLink value="Inserisci un nuovo prodotto" action="newProduct" /></li>
 			<li><a href='<c:url value="/faces/newProvider.jsp" />'>Inserisci un fornitore</a></li>
 			<li>
 			<h:commandLink action="#{productController.listProducts}"
