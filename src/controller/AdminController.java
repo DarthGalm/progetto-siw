@@ -110,6 +110,22 @@ public class AdminController {
 		this.code = code;
 	}
 
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+
 	public ProductFacade getProductFacade() {
 		return productFacade;
 	}

@@ -15,11 +15,8 @@ public class Order {
 	
 	@Column(nullable = false)
 	private String code;
-	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date closingTime;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date shippedDate;
 	
@@ -66,15 +63,6 @@ public class Order {
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
 	}
-	
-	
-	public Date getClosingTime() {
-		return closingTime;
-	}
-
-	public void setClosingTime(Date closingTime) {
-		this.closingTime = closingTime;
-	}
 
 	public Date getShippedDate() {
 		return shippedDate;
@@ -114,7 +102,6 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", code=" + code + ", creationTime=" + creationTime
-				+ ", closingTime=" + closingTime + ", shippedDate=" + shippedDate
-			 + "]";
+				+ ", shippedDate=" + shippedDate + "]";
 	}
 }

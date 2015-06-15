@@ -3,7 +3,7 @@ CASI D’USO PROGETTO SIW GIUGNO 2015
 Giulia Gasperi 462268
 Filippo Frillici 460583
 
-CASO D’USO UC1: consulta listino
+CASO D’USO UC1: consulta listino 
 Attore primario: utente non registrato
 Scenario principale di successo:
 -	L’utente consulta il catalogo dei prodotti
@@ -11,7 +11,7 @@ Scenario principale di successo:
 -	Il sistema mostra i dettagli del prodotto scelto
 -	L’utente ripete i passi precedenti finché non ha terminato 
 
-CASO D’USO UC2: registrazione cliente
+CASO D’USO UC2: registrazione cliente OK
 Attore primario: utente non registrato
 Scenario principale di successo:
 -	L’utente indica di volersi registrare
@@ -20,7 +20,7 @@ Scenario principale di successo:
 Post- Condizione: il cliente è registrato nel sistema e può ora autenticarsi.
 Eccezioni: Se l’indirizzo e-mail è già presente nel database la registrazione non va a buon fine.
 
-CASO D’USO UC3: login utente
+CASO D’USO UC3: login utente OK
 Attore primario: cliente 
 Scenario principale di successo:
 -	Il cliente inserisce la sua email e la sua password
@@ -28,7 +28,7 @@ Scenario principale di successo:
 -	Se i dati sono corretti il sistema visualizza la pagina principale
 Post-condizione: il cliente è identificato e autenticato
 
-CASO D’USO UC4: login amministratore
+CASO D’USO UC4: login amministratore OK
 Attore primario: amministratore 
 Scenario principale di successo:
 -	L’amministratore inserisce la sua email e la sua password
@@ -58,9 +58,6 @@ Scenario principale di successo:
 -	Il sistema registra l’ordine
 Precondizioni: il cliente è identificato e autenticato
 
-
-
-
 CASO D’USO UC7: consultare i propri ordini
 Attore primario: cliente 
 Scenario principale di successo:
@@ -71,7 +68,7 @@ Scenario principale di successo:
 -	Il cliente ripete i due passi precedenti finché necessario
 Precondizioni: Il cliente è registrato e autenticato
 
-CASO D’USO UC8: inserimento prodotti nel catalogo
+CASO D’USO UC8: inserimento prodotti nel catalogo OK
 Attore primario: amministratore
 Scenario principale di successo:
 -	L'amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli 
@@ -86,11 +83,6 @@ Scenario principale di successo:
 -	Il sistema mostra l’elenco di tutti gli ordini 
 Precondizioni: L’amministratore è registrato e autenticato
 
-
-
-
-
-
 CASO D’USO UC10: recupero dati cliente
 Attore primario: amministrazione
 Scenario principale di successo:
@@ -101,7 +93,7 @@ Precondizioni: L’amministratore è registrato e autenticato
 CASO D’USO UC11: recupero dati fornitori
 Attore primario: amministrazione
 Scenario principale di successo:
--	L’amministratore fornisce l'id di un prodotto
+-	L’amministratore fornisce il codice di un prodotto
 -	Il sistema mostra all’amministratore i dati dei fornitori  
 Precondizioni: L’amministratore è registrato e autenticato
 
@@ -113,12 +105,3 @@ Scenario principale di successo:
 -	Il sistema evade l'ordine: aggiorna l'ordine inserendo la data di spedizione e aggiorna la quantità dei prodotti in magazzino (sottraendo la quantità di prodotti usati per l'ordine) 
 Precondizioni: L’amministratore è registrato e autenticato
 Eccezioni: Alcuni prodotti potrebbero non essere presenti in magazzino nella quantità specificata dall'ordine. In questo caso l’ordine rimane in sospeso 
-
-
-
-
-
-
-
-
-

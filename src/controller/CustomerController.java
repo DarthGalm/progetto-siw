@@ -11,11 +11,13 @@ import model.LoginFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class CustomerController {
 	
-	@ManagedProperty(value="#{param.id}")
+//	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstname;
 	private String lastname ;
@@ -36,6 +38,7 @@ public class CustomerController {
 	
 	@EJB
 	private CustomerFacade customerFacade;
+	
 	@EJB
 	private LoginFacade loginFacade;
 	
@@ -186,6 +189,22 @@ public class CustomerController {
 
 	public void setYear(String year) {
 		this.year = year;
+	}
+
+	public CustomerFacade getCustomerFacade() {
+		return customerFacade;
+	}
+
+	public void setCustomerFacade(CustomerFacade customerFacade) {
+		this.customerFacade = customerFacade;
+	}
+
+	public LoginFacade getLoginFacade() {
+		return loginFacade;
+	}
+
+	public void setLoginFacade(LoginFacade loginFacade) {
+		this.loginFacade = loginFacade;
 	}
 	
 	

@@ -22,7 +22,7 @@
 
 <ul>
 			<li><h:commandLink value="Inserisci un nuovo prodotto" action="newProduct" /></li>
-			<li><a href='<c:url value="/faces/newProvider.jsp" />'>Inserisci un fornitore</a></li>
+			<li><h:commandLink value="Inserisci un nuovo fornitore" action="newProvider" /></li>
 			<li>
 			<h:commandLink action="#{productController.listProducts}"
 						value="Visualizza Catalogo" />

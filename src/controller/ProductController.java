@@ -110,5 +110,4 @@ public class ProductController {
 		this.inventory = inventory;
 	}
 	
-
 }
