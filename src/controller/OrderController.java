@@ -1,10 +1,12 @@
 package controller;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 
 import model.*;
@@ -24,6 +26,7 @@ public class OrderController {
 	private Long totalPrice; 
 	private OrderLine orderLine;
 	private Product product;
+	private String customerEmail;
 	private Customer customer;
 	
 	@EJB
@@ -39,10 +42,12 @@ public class OrderController {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(productQuantity>product.getStockQuantity())
 		return "quantityError";
-	this.order = orderFacade.createOrder(productQuantity, product, id);
-	if(order==null) return "genericError";
-	this.id = order.getId();
-	return "orderCompleted";
+	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail);
+//	this.order = orderFacade.createOrder(productQuantity, product, id, customer);
+//	if(order==null) return "genericError";
+//	this.id = order.getId();
+//	return "orderCompleted";
+	return "test";
 	}
 
 	public Long getId() {
@@ -141,6 +146,15 @@ public class OrderController {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+	
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
 	}
 
 	public Customer getCustomer() {

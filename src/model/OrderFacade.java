@@ -18,9 +18,9 @@ public class OrderFacade {
 	@PersistenceContext(unitName = "progetto-unit")
 	private EntityManager em;
 	
-	public Order createOrder(Integer productQuantity, Product product, Long id){
+	public Order createOrder(Integer productQuantity, Product product, Long id, Customer customer){
 		Order order;
-		if(id==0) {
+		if(id==0 || id == null) {
 			order = new Order(new java.util.Date());
 		} else {
 			TypedQuery<Order> query = em.createNamedQuery("retrieveOrderById", Order.class);
@@ -34,10 +34,12 @@ public class OrderFacade {
 		List<OrderLine> orderLineList = order.getOrderLines();
 		orderLineList.add(orderLine);
 		order.setOrderLines(orderLineList);
-		return null;
 		
+		List<Order> orders = customer.getOrders();
+		orders.add(order);
+		customer.setOrders(orders);
 		
-		
-	}
+		return order;
+		}
 
 }

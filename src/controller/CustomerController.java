@@ -53,6 +53,7 @@ public class CustomerController {
 	public String login() {
 		this.customer = loginFacade.customerLogin(email, password);
 		if(customer==null) return "loginError";
+		this.email=customer.getEmail();
 		return "loggedUserHome";
 	}
 	

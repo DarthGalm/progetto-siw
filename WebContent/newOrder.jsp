@@ -28,6 +28,7 @@
 </table>
 
 <h3><h:outputText value="#{customerController.customer.firstname}"/>, inserisci i dati richiesti</h3>
+<h3><h:outputText value="#{customerController.customer.email}"/>, questa è la tua email</h3>
 
 <div>Codice del prodotto: <h:inputText value="#{orderController.productCode}" 
                      required="true"
@@ -42,10 +43,11 @@
 	</div>
 	
 	<div>
-		<h:commandButton value="Effettua Ordine"  action="#{orderController.createOrder}"/>
+						<h:commandButton action="#{orderController.createOrder}">
+								<f:setPropertyActionListener target="#{orderController.customerEmail}" value="#{customerController.customer.email}" />
+						</h:commandButton>
 	</div>
 </h:form>
-
 </f:view>
 </body>
 </html>

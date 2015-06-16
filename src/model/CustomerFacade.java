@@ -61,4 +61,10 @@ public class CustomerFacade {
 		return customer;
 	}
 	
+	public Customer retrieveCustomerByEmail(String email) {
+		TypedQuery<Customer> query = em.createNamedQuery("retrieveCustomerByEmail", Customer.class);
+		Customer customer = query.setParameter("email", email).getSingleResult();
+		return customer;
+	}
+	
 }
