@@ -12,7 +12,6 @@
 <f:view>
 <h:form>
 
-
 <h1>Dettagli prodotto</h1>
 
 
@@ -22,11 +21,6 @@
 <div>Quantità in magazzino: ${productController.product.stockQuantity}</div>
 <div>Descrizione: ${productController.product.description}</div>
 <br />
-
-
-
-
-
 </h:form>
 </f:view>
 </body>

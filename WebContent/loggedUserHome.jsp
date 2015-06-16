@@ -20,9 +20,9 @@
 </h2>
 
 <ul>
-<li><h:commandLink action="#{productController.listCustomerProducts}" value="Visualizza Catalogo" /></li>
-<li><h:commandLink action="newOrder" value="Acquista un prodotto" /></li>
-		</ul>
+<li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
+<li><h:commandLink action="#{productController.newOrder}" value="Effettua un nuovo ordine" /></li>
+</ul>
 
 </h:form>
 </f:view>

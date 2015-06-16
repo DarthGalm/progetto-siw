@@ -39,8 +39,10 @@ public class OrderController {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(productQuantity>product.getStockQuantity())
 		return "quantityError";
-	this.order = orderFacade.createOrder(productQuantity, product);
-	return "newOrder";
+	this.order = orderFacade.createOrder(productQuantity, product, id);
+	if(order==null) return "genericError";
+	this.id = order.getId();
+	return "orderCompleted";
 	}
 
 	public Long getId() {

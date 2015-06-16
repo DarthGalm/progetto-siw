@@ -23,9 +23,6 @@
 <br />
 
 <h:commandLink value="Torna alla Home" action="newOrder" />
-
-
-
 </h:form>
 </f:view>
 </body>

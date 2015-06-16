@@ -17,11 +17,9 @@
 		<th>Nome</th><th>Prezzo</th><th>Codice</th> 
 	</tr>
 	
-		<c:forEach var="product" items="#{productController.inventory}">
-		<tr><td>
-		<h:commandLink action="#{productController.findCustomerProduct}" value="#{product.name}">
-			<f:param name="id" value="#{product.id}" />
-		</h:commandLink></td>
+		<c:forEach var="product" items="#{productController.inventoryCustomer}">
+		<tr>
+		<td>${product.name}</td>
 		<td>${product.price}</td>
 		<td>${product.code}</td>
 		</tr>
@@ -29,7 +27,7 @@
 	</c:forEach>
 </table>
 
-<h3>Inserisci i dati richiesti</h3>
+<h3><h:outputText value="#{customerController.customer.firstname}"/>, inserisci i dati richiesti</h3>
 
 <div>Codice del prodotto: <h:inputText value="#{orderController.productCode}" 
                      required="true"

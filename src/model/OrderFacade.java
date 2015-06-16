@@ -18,8 +18,25 @@ public class OrderFacade {
 	@PersistenceContext(unitName = "progetto-unit")
 	private EntityManager em;
 	
-	public Order createOrder(Integer productQuantity, Product product){
-		TypedQuery<Order> 
+	public Order createOrder(Integer productQuantity, Product product, Long id){
+		Order order;
+		if(id==0) {
+			order = new Order(new java.util.Date());
+		} else {
+			TypedQuery<Order> query = em.createNamedQuery("retrieveOrderById", Order.class);
+			order = query.setParameter("id", id).getSingleResult();
+		}
+		
+		OrderLine orderLine = new OrderLine(product.getName(), product.getCode(), productQuantity, product.getPrice());
+		orderLine.setTotalPrice(productQuantity*product.getPrice());
+		orderLine.setProduct(product);
+		
+		List<OrderLine> orderLineList = order.getOrderLines();
+		orderLineList.add(orderLine);
+		order.setOrderLines(orderLineList);
+		return null;
+		
+		
 		
 	}
 

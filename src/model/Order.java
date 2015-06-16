@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
+@NamedQuery(name="retrieveOrderById", query="SELECT o FROM Order o WHERE o.id = :id")
 public class Order {
 	
 	@Id 
