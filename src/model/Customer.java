@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@NamedQuery(name = "retrieveCustomerByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")
+@NamedQuery(name = "retrieveCustomerByEmail", query = "SELECT cust FROM Customer cust WHERE cust.email = :email")
 public class Customer {
 
 	@Id

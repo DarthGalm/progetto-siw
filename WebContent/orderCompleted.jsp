@@ -6,17 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Nuovo Cliente registrato</title>
+<title>Nuovo Ordine effettuato</title>
 </head>
 <body>
 <f:view>
-<h1>TEST</h1>
+<h:form>
+<h1>Ordine effettuato con successo</h1>
 
 
-<div>Email: ${orderController.customerEmail}</div>
-<div>Prodotto: ${orderController.product.name}</div>
-<div>Il customer: ${orderController.customer.name}</div>
+<div>Data: ${orderController.order.creationTime}</div>
 
+<br />
+
+ <li><h:commandButton value="Torna alla Home"  action="home"/></li>
+
+
+
+</h:form>
 </f:view>
 </body>
 </html>

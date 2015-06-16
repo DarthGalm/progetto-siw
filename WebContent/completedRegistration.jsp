@@ -10,6 +10,7 @@
 </head>
 <body>
 <f:view>
+<h:form>
 <h1>Registrazione effettuata con successo</h1>
 
 
@@ -30,7 +31,7 @@
 
 
 
-
+</h:form>
 </f:view>
 </body>
 </html>

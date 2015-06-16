@@ -42,8 +42,9 @@ public class OrderController {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(productQuantity>product.getStockQuantity())
 		return "quantityError";
-	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail);
-//	this.order = orderFacade.createOrder(productQuantity, product, id, customer);
+//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail);
+//	if(customer==null) return "genericError";
+//	this.order = orderFacade.createOrder(productQuantity, product);
 //	if(order==null) return "genericError";
 //	this.id = order.getId();
 //	return "orderCompleted";

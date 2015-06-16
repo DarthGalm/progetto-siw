@@ -8,13 +8,15 @@ import model.Address;
 import model.Product;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
+@SessionScoped
 public class ProviderController {
 	
-	@ManagedProperty(value="#{param.id}")
+//	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
 	private String lastName;

@@ -8,11 +8,13 @@ import model.Product;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class ProductController {
 	
-	@ManagedProperty(value="#{param.id}")
+//	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
 	private String code;
