@@ -42,9 +42,9 @@ public class ProductController {
 		return "productDetails";
 	}
 	
-	public String listCustomerProducts() { 
+	public String newOrder() { 
 		this.inventoryCustomer = productFacade.getAllProductsCustomer();
-		return "inventoryCustomer"; 
+		return "newOrder"; 
 	}
 	
 	public String findCustomerProduct() {

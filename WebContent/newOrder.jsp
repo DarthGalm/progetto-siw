@@ -19,7 +19,7 @@
 	
 		<c:forEach var="product" items="#{productController.inventory}">
 		<tr><td>
-		<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
+		<h:commandLink action="#{productController.findCustomerProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
 		</h:commandLink></td>
 		<td>${product.price}</td>
@@ -31,7 +31,7 @@
 
 <h3>Inserisci il codice del prodotto che vorresti acquistare</h3>
 
-<div>Nome: <h:inputText value="#{OrderController.code}" 
+<div>Nome: <h:inputText value="#{orderController.code}" 
                      required="true"
                      requiredMessage="Il codice del prodotto è un campo obbligatorio"
                      id="code"/> <h:message for="code" />
