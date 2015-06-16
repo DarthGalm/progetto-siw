@@ -20,7 +20,7 @@ public class ProductFacade {
 	@PersistenceContext(unitName = "progetto-unit")
     private EntityManager em;
 
-	public Product createProduct(String name, String code, String price, String description, String stockQuantity){
+	public Product createProduct(String name, String code, Long price, String description, Integer stockQuantity){
 		Product product = new Product(name, code, price, description, stockQuantity);
 		em.persist(product);
 		return product;

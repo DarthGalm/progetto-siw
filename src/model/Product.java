@@ -23,18 +23,18 @@ public class Product {
 	@Column(nullable = false)
 	private String code;
 	@Column(nullable = false)
-	private String price;
+	private Long price;
 	@Column(nullable = false)
 	private String description;
 	@Column(nullable = false)
-	private String stockQuantity;
+	private Integer stockQuantity;
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
 	private List<Provider> providers;
 	
 	public Product(){}
 	
-	public Product(String name, String code, String price, String description, String stockQuantity) {
+	public Product(String name, String code, Long price, String description, Integer stockQuantity) {
 		this.name=name;
 		this.code=code;
 		this.price=price;
@@ -66,14 +66,6 @@ public class Product {
 		this.code = code;
 	}
 
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -81,15 +73,24 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+	public Long getPrice() {
+		return price;
+	}
 
-	public String getStockQuantity() {
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+
+	public Integer getStockQuantity() {
 		return stockQuantity;
 	}
 
-	public void setStockQuantity(String stockQuantity) {
+	public void setStockQuantity(Integer stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
-	
+
 	public List<Provider> getProviders() {
 		return providers;
 	}

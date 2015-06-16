@@ -52,7 +52,7 @@ public class AdminController {
 	public String findProvidersForProduct() {
 		this.product=productFacade.retrieveProductByCode(code);
 		if(product==null) return "notFoundAdmin";
-		this.providers=providerFacade.findProvidersForProduct(product.getId());
+		this.providers=productFacade.findProvidersForProduct(product);
 		return "providersForProduct";
 	}
 
@@ -120,6 +120,7 @@ public class AdminController {
 		this.code = code;
 	}
 
+	
 	public Product getProduct() {
 		return product;
 	}

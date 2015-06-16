@@ -16,9 +16,9 @@ public class ProductController {
 	private Long id;
 	private String name;
 	private String code;
-	private String price;
+	private Long price;
 	private String description;
-	private String stockQuantity;
+	private Integer stockQuantity;
 	private Product product;
 	private List<Product> inventory;
 	private List<Product> inventoryCustomer;
@@ -81,14 +81,6 @@ public class ProductController {
 		this.code = code;
 	}
 
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -97,12 +89,28 @@ public class ProductController {
 		this.description = description;
 	}
 
-	public String getStockQuantity() {
+	public Long getPrice() {
+		return price;
+	}
+
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+
+	public Integer getStockQuantity() {
 		return stockQuantity;
 	}
 
-	public void setStockQuantity(String stockQuantity) {
+	public void setStockQuantity(Integer stockQuantity) {
 		this.stockQuantity = stockQuantity;
+	}
+
+	public ProductFacade getProductFacade() {
+		return productFacade;
+	}
+
+	public void setProductFacade(ProductFacade productFacade) {
+		this.productFacade = productFacade;
 	}
 
 	public Product getProduct() {

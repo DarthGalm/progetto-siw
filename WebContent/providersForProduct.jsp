@@ -19,9 +19,8 @@
 	</tr>
 	<c:forEach var="provider" items="#{adminController.providers}">
 		<tr>
-		<td>${provider.name}</td>
-		<td>${provider.email}</td>
-		<td>${provider.phoneNumber}</td>
+		<td><h:outputText value="#{provider.name}"/></td>
+		<td><h:outputText value="#{provider.email}"/></td>
 		</tr>
 	</c:forEach>
 </table>
