@@ -7,7 +7,10 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "retrieveProviderByEmail", query = "SELECT prov FROM Provider prov WHERE prov.email = :email"),
-@NamedQuery(name = "retrieveProviderByVat", query = "SELECT prov FROM Provider prov WHERE prov.vat = :vat"), })
+@NamedQuery(name = "retrieveProviderByVat", query = "SELECT prov FROM Provider prov WHERE prov.vat = :vat"), 
+//@NamedQuery(name = "findProvidersForProduct", query = "SELECT prov FROM Provider p WHERE p.catalog = :product")
+@NamedQuery(name = "findProvidersForProduct", query = "SELECT pr FROM Provider pr JOIN pr.catalog pd WHERE pd.id = :id")
+})
 public class Provider {
 
 	@Id

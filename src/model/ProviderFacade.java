@@ -52,4 +52,10 @@ public class ProviderFacade {
 		return null; 
 		}
 	}
+	
+	public List<Provider> findProvidersForProduct(Long id) {
+		TypedQuery<Provider> query = em.createNamedQuery("findProvidersForProduct", Provider.class);
+		List<Provider> providers = query.setParameter("id", id).getResultList();
+		return providers;
+	}
 }

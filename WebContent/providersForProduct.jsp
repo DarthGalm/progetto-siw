@@ -8,10 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lista Fornitori di un prodotto</title>
 </head>
-<body>
 <f:view>
-<h2>Fornitori disponibili per il prodotto: <h:outputText value="#{adminController.product.name}"/></h2>
 <h:form>
+<body>
+<h2>Fornitori disponibili per il prodotto: <h:outputText value="#{adminController.product.name}"/></h2>
+
 <table>
 	<tr>
 		<th>Nome</th><th>Email</th><th>Telefono</th>
@@ -25,10 +26,10 @@
 	</c:forEach>
 </table>
 <br />
-<h:commandLink value="Torna alla Home" action="loggedAdminHome"/>
-</h:form>
-</f:view>
 
+<h:commandLink value="Torna alla Home" action="loggedAdminHome"/>
 
 </body>
+</h:form>
+</f:view>
 </html>
