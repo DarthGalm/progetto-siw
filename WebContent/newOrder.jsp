@@ -29,12 +29,18 @@
 	</c:forEach>
 </table>
 
-<h3>Inserisci il codice del prodotto che vorresti acquistare</h3>
+<h3>Inserisci i dati richiesti</h3>
 
-<div>Nome: <h:inputText value="#{orderController.code}" 
+<div>Codice del prodotto: <h:inputText value="#{orderController.productCode}" 
                      required="true"
                      requiredMessage="Il codice del prodotto è un campo obbligatorio"
-                     id="code"/> <h:message for="code" />
+                     id="productCode"/> <h:message for="productCode" />
+	</div>
+
+<div>Quantità: <h:inputText value="#{orderController.productQuantity}" 
+                     required="true"
+                     requiredMessage="La quantità del prodotto è un campo obbligatorio"
+                     id="productQuantity"/> <h:message for="productQuantity" />
 	</div>
 	
 	<div>

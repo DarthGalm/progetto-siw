@@ -14,5 +14,13 @@ import java.util.List;
 
 @Stateless
 public class OrderFacade {
+	
+	@PersistenceContext(unitName = "progetto-unit")
+	private EntityManager em;
+	
+	public Order createOrder(Integer productQuantity, Product product){
+		TypedQuery<Order> 
+		
+	}
 
 }

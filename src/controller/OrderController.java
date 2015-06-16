@@ -14,13 +14,12 @@ import model.*;
 public class OrderController {
 	
 	private Long id;
-	private String code;
 	private Date creationTime;
 	private Date shippedDate;
 	private Order order;
 	private String productName;
 	private String productCode;
-	private Integer quantity;
+	private Integer productQuantity;
 	private Long unitPrice;
 	private Long totalPrice; 
 	private OrderLine orderLine;
@@ -36,7 +35,13 @@ public class OrderController {
 	@EJB
 	private CustomerFacade customerFacade;
 	
-	public String createOrder(){ return "";}
+	public String createOrder() {
+	this.product = productFacade.retrieveProductByCode (productCode);
+	if(productQuantity>product.getStockQuantity())
+		return "quantityError";
+	this.order = orderFacade.createOrder(productQuantity, product);
+	return "newOrder";
+	}
 
 	public Long getId() {
 		return id;
@@ -46,13 +51,6 @@ public class OrderController {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	public Date getCreationTime() {
 		return creationTime;
@@ -94,12 +92,21 @@ public class OrderController {
 		this.productCode = productCode;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+
+	public Integer getProductQuantity() {
+		return productQuantity;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(Integer productQuantity) {
+		this.productQuantity = productQuantity;
+	}
+
+	public CustomerFacade getCustomerFacade() {
+		return customerFacade;
+	}
+
+	public void setCustomerFacade(CustomerFacade customerFacade) {
+		this.customerFacade = customerFacade;
 	}
 
 	public Long getUnitPrice() {
@@ -158,13 +165,7 @@ public class OrderController {
 		this.productFacade = productFacade;
 	}
 
-	public CustomerFacade getCustomerFacade() {
-		return customerFacade;
-	}
 
-	public void setCustomerFacade(CustomerFacade customerFacade) {
-		this.customerFacade = customerFacade;
-	}
 	
 	
 

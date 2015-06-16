@@ -13,8 +13,6 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
-	private String code;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -31,10 +29,6 @@ public class Order {
 	public Order(){
 	}
 	
-	public Order(String code, Date creationTime) {
-		this.code = code;
-		this.creationTime = creationTime;
-	}
 	public Order(Date creationTime){
 		this.creationTime = creationTime;
 	}
@@ -47,14 +41,6 @@ public class Order {
 		this.id = id;
 	}
 	
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	public Date getCreationTime() {
 		return creationTime;
@@ -88,20 +74,20 @@ public class Order {
 		this.orderLines = orderLines;
 	}
 
-	@Override
-	public int hashCode() {
-		return this.code.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		Order order = (Order) obj;
-		return this.getCode().equals(order.getCode());
-	}
+//	@Override
+//	public int hashCode() {
+//		return this.code.hashCode();
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		Order order = (Order) obj;
+//		return this.getCode().equals(order.getCode());
+//	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", code=" + code + ", creationTime=" + creationTime
+		return "Product [id=" + id + ", creationTime=" + creationTime
 				+ ", shippedDate=" + shippedDate + "]";
 	}
 }
