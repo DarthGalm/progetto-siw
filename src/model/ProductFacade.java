@@ -65,11 +65,11 @@ public class ProductFacade {
 		}
 	}
 	
-//	public List<Provider> findProvidersForProduct(Product product) {
-//		TypedQuery<Provider> query = em.createNamedQuery("findProvidersForProduct", Provider.class);
-//		List<Provider> providers = query.setParameter("product", product).getResultList();
-//		return providers;
-//	}
+	public List<Provider> findProvidersForProduct(Product product) {
+		TypedQuery<Provider> query = em.createNamedQuery("findProvidersForProduct", Provider.class);
+		List<Provider> providers = query.setParameter("product", product).getResultList();
+		return providers;
+	}
 
 	public void updateProduct(Product product) {
         em.merge(product);

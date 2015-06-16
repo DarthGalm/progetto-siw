@@ -9,7 +9,7 @@ import javax.persistence.*;
 @NamedQuery(name = "retrieveProviderByEmail", query = "SELECT prov FROM Provider prov WHERE prov.email = :email"),
 @NamedQuery(name = "retrieveProviderByVat", query = "SELECT prov FROM Provider prov WHERE prov.vat = :vat"), 
 //@NamedQuery(name = "findProvidersForProduct", query = "SELECT prov FROM Provider p WHERE p.catalog = :product")
-@NamedQuery(name = "findProvidersForProduct", query = "SELECT pr FROM Provider pr JOIN pr.catalog pd WHERE pd.id = :id")
+//@NamedQuery(name = "findProvidersForProduct", query = "SELECT pr FROM Provider pr JOIN pr.catalog pd WHERE pd.id = :id")
 })
 public class Provider {
 
@@ -28,11 +28,11 @@ public class Provider {
 	@Column (nullable = false)
 	public String vat;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="address_fk")
 	private Address address;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
 	private List<Product> catalog;
 	
 	public Provider(){
