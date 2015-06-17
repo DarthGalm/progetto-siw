@@ -21,6 +21,7 @@
 <div>Quantità in magazzino: ${productController.product.stockQuantity}</div>
 <div>Descrizione: ${productController.product.description}</div>
 <br />
+
 </h:form>
 </f:view>
 </body>

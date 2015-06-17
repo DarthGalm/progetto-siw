@@ -49,9 +49,15 @@ public class OrderController {
 	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("order", this.order);
 /*	this.customer.addOrder(this.order); 	//ERRORE NULLPOINTER EXCEPTION */	
 	this.orderLine = orderFacade.addOrderLine(quantity, product, order);
+	Integer quantityLeft=(product.getStockQuantity()-quantity);
+	product.setStockQuantity(quantityLeft);
+	productFacade.updateProduct(product);
 			}
 	else{
 		this.orderLine = orderFacade.addOrderLine(quantity, product, order);
+		Integer quantityLeft=(product.getStockQuantity()-quantity);
+		product.setStockQuantity(quantityLeft);
+		productFacade.updateProduct(product);
 	}
 //	if(order==null && orderLine==null) return "genericError";
 	return "orderCompleted";
