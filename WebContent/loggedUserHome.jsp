@@ -8,18 +8,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pagina iniziale utente</title>
 </head>
-<body>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
 <f:view>
 <h:form>
 <div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
  
 <h2>
-<h:outputFormat value="Benvenuto, {0}.">
+<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center"><h:outputFormat value="Benvenuto, {0}.">
 	<f:param value="#{customerController.customer.firstname}" />
-</h:outputFormat>
+</h:outputFormat></h1></font>
 </h2>
 
-<ul>
+
+<font face = "Papyrus"
+		size = "+2"> <ul type = "square">
 <li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
 <li><h:commandLink action="#{productController.newOrder}" value="Effettua un nuovo ordine">
 	<f:setPropertyActionListener value="#{customerController.customer}" target="#{productController.customer}"/>
@@ -27,7 +30,7 @@
 <li><h:commandLink action="#{orderController.listOrdersCustomer}" value="Visualizza ordini">
 	<f:setPropertyActionListener value="#{customerController.customer.id}" target="#{orderController.customerId}"/>
 	</h:commandLink></li>
-</ul>
+</ul></font>
 
 </h:form>
 </f:view>

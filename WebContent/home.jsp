@@ -10,14 +10,21 @@
 </head>
 <f:view>
 <h:form>
-<body>
-<h1>Benvenuti nel portale F&G</h1> 
-		<ul>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
+<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center">Benvenuti nel portale F&G</h1> </font>
+		<font face = "Papyrus"
+		size = "+2"> <ul type = "square">
+		
 			<li><h:commandLink value="Registrati"  action="newCustomer"/></li>
 			<li><h:commandLink value="Login"  action="login"/></li>
 			<li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
-		</ul>
-	<div style='float: right;'><h:commandLink value="Login Amministratore"  action="adminLogin"/></div>
+		</ul> </font>
+		
+		<center><img src = "http://files.parsetfss.com/fc3d7dc3-23c0-4475-9462-24019d2efb58/tfss-501b35b6-b45f-457b-8bf5-62194bda784d-photo.jpg" width="300" height="350" /></center>
+		
+	<div style='float: right;'><font face = "Papyrus" color = "#4B0082" ><h:commandLink value="Login Amministratore"  action="adminLogin"/></font></div>
+	
 </body>
 </h:form>
 </f:view>

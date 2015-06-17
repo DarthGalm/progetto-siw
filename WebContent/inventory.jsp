@@ -8,22 +8,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Catalogo</title>
 </head>
-<body>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
 <f:view>
-<h1>Catalogo prodotti</h1>
+<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center"> Catalogo prodotti</h1></font>
 <h:form>
-<table>
+<div align= "center" valign= "middle">
+<table> 
 	<tr>
-		<th>Nome</th><th>Prezzo</th>
+		<th><font face = "Courier New" color = "#FF1493" size = "+2" >Nome</font></th><th><font face = "Courier New" color = "#FF1493" size = "+2">Prezzo</font></th>
 	</tr>
 	<c:forEach var="product" items="#{productController.inventory}">
 		<tr><td>
+		<font face = "Courier New" color = "#800080" size = "+1">
 		<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
-		</h:commandLink>
-		</td><td>${product.price}€</td></tr>
+		</h:commandLink> </font>
+		</td> 
+		
+		<td> <font face = "Courier New" color = "#800080" size = "+1"> ${product.price}€</font></td></tr>
 	</c:forEach>
-</table>
+
+</table> 
+</div>
 </h:form>
 
 </f:view>

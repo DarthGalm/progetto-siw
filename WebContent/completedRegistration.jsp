@@ -8,12 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nuovo Cliente registrato</title>
 </head>
-<body>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
 <f:view>
 <h:form>
-<h1>Registrazione effettuata con successo</h1>
+<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center"> Registrazione effettuata con successo</h1></font>
 
-
+<font color = "#4B0082">
 <div>Nome: ${customerController.customer.firstname}</div>
 <div>Cognome: ${customerController.customer.lastname}</div>
 <div>Data di nascita: ${customerController.customer.dateOfBirth}</div>
@@ -24,6 +25,7 @@
 <div>Provincia: ${customerController.customer.address.state}</div>
 <div>CAP: ${customerController.customer.address.zipcode}</div>
 <div>Paese: ${customerController.customer.address.country}</div>
+</font>
 
 <br />
 

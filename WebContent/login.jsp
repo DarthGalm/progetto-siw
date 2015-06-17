@@ -8,12 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login utente</title>
 </head>
-<body>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
 <f:view>
 <h:form>
 
-<h1>Inserisci i dati per il login</h1>
+<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center"> Inserisci i dati per il login</h1></font>
 <br />
+
+<img src="http://i.myniceprofile.com/745/74537.gif" align = "right">
 
 <div>Email: <h:inputText value="#{customerController.email}"
 			required="true"

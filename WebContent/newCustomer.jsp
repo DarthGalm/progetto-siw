@@ -8,10 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registrazione</title>
 </head>
-<body>
+<body bgcolor = "#FFE4E1"
+       link = "#663399"    alink = "#800080"    vlink = "#B0E0E6">
 <f:view>
 <h:form>
-	<h1>Inserisci i tuoi dati</h1>
+	<font face = "Papyrus" color = "#FF69B4"> <h1 align = "center"> Inserisci i tuoi dati</h1></font>
 	<br />
 	
     <div>Nome: <h:inputText value="#{customerController.firstname}" 
@@ -50,7 +51,7 @@
     
     <br /> 
     
-    <h2>Inserisci il tuo indirizzo completo</h2>
+    <font face = "Papyrus" color = "#FF69B4"> <h2 align = "center"> Inserisci il tuo indirizzo completo</h2></font>
     
     <div>Via/Piazza: <h:inputText value="#{customerController.street}"
     				required="true"
