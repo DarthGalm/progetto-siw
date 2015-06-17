@@ -52,9 +52,8 @@ public class OrderFacade {
 	}
 	
 	public List<OrderLine> getAllOrderLinesCustomer(Long orderId) {
-		TypedQuery<Order> query = em.createNamedQuery("retrieveOrderById", Order.class);
-		Order order = query.setParameter("id", orderId).getSingleResult();
-		List<OrderLine> orderLines = order.getOrderLines();
+		TypedQuery<OrderLine> query = em.createNamedQuery("retrieveByOrder", OrderLine.class);
+		List<OrderLine> orderLines = query.setParameter("idOrdine", orderId).getResultList();
 		return orderLines;	
 	}
 	

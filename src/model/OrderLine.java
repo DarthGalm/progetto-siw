@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name="retrieveByOrder", query = "SELECT ol FROM OrderLine ol WHERE ol.order.id = :idOrdine")
 public class OrderLine {
 	
 	@Id

@@ -12,14 +12,14 @@ import java.util.List;
 @NamedQuery(name="retrieveOrderById", query="SELECT o FROM Order o WHERE o.id = :id"),
 @NamedQuery(name = "findAllOrders", query = "SELECT o FROM Order o"),
 @NamedQuery(name = "findAllOrdersForCustomer", query = "SELECT o FROM Order o WHERE o.customer.id = :id"),
-@NamedQuery(name = "findAllOrderLinesForCustomer", query = "SELECT ol FROM Order o JOIN FETCH o.orderLines WHERE o.id = :id")
+//@NamedQuery(name = "findAllOrderLinesForCustomer", query = "SELECT ol FROM Order o JOIN FETCH o.orderLines WHERE o.id = :id")
 })
 public class Order {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+	//specifiche modificate: l' ordine viene chiuso nella stessa data in cui viene effettuato, quindi ho solo due date.
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
 	@Temporal(TemporalType.TIMESTAMP)
