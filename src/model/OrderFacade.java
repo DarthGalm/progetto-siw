@@ -28,9 +28,14 @@ public class OrderFacade {
 	public OrderLine addOrderLine(Integer productQuantity, Product product, Order order) {
 		OrderLine orderLine = new OrderLine(product.getName(), product.getCode(), productQuantity, product.getPrice());
 		orderLine.setProduct(product);
+		orderLine.setOrder(order);
 		order.addOrderLine(orderLine);
 		em.persist(orderLine);
 		return orderLine;
+	}
+	
+	public void updateOrder(Order order) {
+		em.merge(order);
 	}
 	
 

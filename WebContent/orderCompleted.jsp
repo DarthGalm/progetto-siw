@@ -22,7 +22,7 @@
 <div>Quantità: ${orderController.orderLine.quantity}</div>
 
  <li><h:commandButton value="Concludi il tuo ordine"  action="#{orderController.closeOrder}"/></li>
- <li><h:commandButton value="Compra un altro oggetto" action="newOrder"/></li>
+ <li><h:commandButton value="Compra un altro oggetto" action="#{productController.newOrder}"/></li>
 
 
 

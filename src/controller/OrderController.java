@@ -42,7 +42,7 @@ public class OrderController {
 	public String createOrder() {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(quantity>product.getStockQuantity()) return "quantityError";
-//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail); //ERRORE NULLPOINTER EXCEPTION	
+//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail); //ERRORE NULLPOINTER EXCEPTION ma non serve	
 //	if(customer==null) return "genericError";
 	if(!FacesContext.getCurrentInstance().getExternalContext().getSessionMap().containsKey("order")) {
 	this.order = orderFacade.createOrder(customer);
@@ -51,13 +51,13 @@ public class OrderController {
 	this.orderLine = orderFacade.addOrderLine(quantity, product, order);
 	Integer quantityLeft=(product.getStockQuantity()-quantity);
 	product.setStockQuantity(quantityLeft);
-	productFacade.updateProduct(product);
+	productFacade.updateProduct(product); //aggiorna la q.tà nel DB ma non la mostra se ritorno a newOrder
 			}
 	else{
 		this.orderLine = orderFacade.addOrderLine(quantity, product, order);
 		Integer quantityLeft=(product.getStockQuantity()-quantity);
 		product.setStockQuantity(quantityLeft);
-		productFacade.updateProduct(product);
+		productFacade.updateProduct(product); 
 	}
 //	if(order==null && orderLine==null) return "genericError";
 	return "orderCompleted";
