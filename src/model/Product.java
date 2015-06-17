@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @NamedQuery(name = "findAllProducts", query = "SELECT p FROM Product p"),
 @NamedQuery(name = "retrieveProductByCode", query = "SELECT prod FROM Product prod WHERE prod.code = :code"), 
 //@NamedQuery(name="findProvidersForProduct", query="SELECT DISTINCT p.providers FROM Product p WHERE p.id = :id")
-@NamedQuery(name="findProvidersForProduct", query="SELECT DISTINCT prov FROM Product prod JOIN prod.providers prov WHERE prod = :product")
+@NamedQuery(name="findProvidersForProduct", query="SELECT DISTINCT prov FROM Product prod JOIN prod.providers prov WHERE prod.id = :id")
 })
 																															//AND prov IN prod.providers
 public class Product {
@@ -40,6 +41,7 @@ public class Product {
 		this.price=price;
 		this.description=description;
 		this.stockQuantity=stockQuantity;
+		this.providers=new ArrayList<Provider>();
 	}
 
 	public Long getId() {

@@ -10,6 +10,7 @@
 </head>
 <body>
 <f:view>
+<h:form>
  <div style='float: right;'><h:commandButton value="Logout"  action="home"/></div>
  <li><h:commandButton value="Torna alla Home"  action="loggedAdminHome"/></li>
 
@@ -33,7 +34,7 @@
 
 
 
-
+</h:form>
 </f:view>
 </body>
 </html>

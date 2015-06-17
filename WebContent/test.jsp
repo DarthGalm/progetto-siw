@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Nuovo Cliente registrato</title>
+<title>TEST</title>
 </head>
 <body>
 <f:view>
@@ -15,7 +15,6 @@
 
 <div>Email: ${orderController.customerEmail}</div>
 <div>Prodotto: ${orderController.product.name}</div>
-<div>Il customer: ${orderController.customer.name}</div>
 
 </f:view>
 </body>

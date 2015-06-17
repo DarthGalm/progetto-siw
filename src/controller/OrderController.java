@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.Column;
@@ -21,12 +22,13 @@ public class OrderController {
 	private Order order;
 	private String productName;
 	private String productCode;
-	private Integer productQuantity;
+	private Integer quantity;
 	private Long unitPrice;
 	private Long totalPrice; 
 	private OrderLine orderLine;
 	private Product product;
 	private String customerEmail;
+	@ManagedProperty(value="#{sessionScope['customerController'].customer}")
 	private Customer customer;
 	
 	@EJB
@@ -40,11 +42,12 @@ public class OrderController {
 	
 	public String createOrder() {
 	this.product = productFacade.retrieveProductByCode (productCode);
-	if(productQuantity>product.getStockQuantity())
-		return "quantityError";
+	if(quantity>product.getStockQuantity()) return "quantityError";
+//	if(productQuantity>product.getStockQuantity())
+//		return "quantityError";
 //	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail);
 //	if(customer==null) return "genericError";
-//	this.order = orderFacade.createOrder(productQuantity, product);
+	this.order = orderFacade.createOrder(quantity, product, customer);
 //	if(order==null) return "genericError";
 //	this.id = order.getId();
 //	return "orderCompleted";
@@ -101,12 +104,12 @@ public class OrderController {
 	}
 
 
-	public Integer getProductQuantity() {
-		return productQuantity;
+	public Integer getQuantity() {
+		return quantity;
 	}
 
-	public void setProductQuantity(Integer productQuantity) {
-		this.productQuantity = productQuantity;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 	public CustomerFacade getCustomerFacade() {

@@ -61,18 +61,18 @@ public class CustomerFacade {
 		return customer;
 	}
 	
-	public Customer retrieveCustomerByEmail(String email) {
-//		TypedQuery<Customer> query = em.createNamedQuery("retrieveCustomerByEmail", Customer.class);
-//		try{
-//			Customer customer = query.setParameter("email", email).getSingleResult();
-//			return customer;
-//		} catch(NoResultException e) {
-//		return null; 
-//		}
-		
-		TypedQuery<Customer> query = em.createQuery("SELECT c FROM Customer c WHERE c.email = :email", Customer.class);
-		Customer customer = query.setParameter("email", email).getSingleResult();
-		return customer;
+	public Customer retrieveCustomerByEmail(String customerEmail) {
+		Query query = em.createNamedQuery("retrieveCustomerByEmail", Customer.class);
+		try{
+			Customer customer = (Customer)query.setParameter("email", customerEmail).getSingleResult();
+			return customer;
+		} catch(NoResultException e) {
+		return null; 
+//		}		
+//		TypedQuery<Customer> query = em.createQuery("SELECT c FROM Customer c WHERE c.email = :email", Customer.class);
+//		Customer customer = query.setParameter("email", email).getSingleResult();
+//		return customer;
+		}
 	}
 	
 }

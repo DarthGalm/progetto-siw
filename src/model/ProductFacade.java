@@ -67,7 +67,7 @@ public class ProductFacade {
 	
 	public List<Provider> findProvidersForProduct(Product product) {
 		TypedQuery<Provider> query = em.createNamedQuery("findProvidersForProduct", Provider.class);
-		List<Provider> providers = query.setParameter("product", product).getResultList();
+		List<Provider> providers = query.setParameter("id", product.getId()).getResultList();
 		return providers;
 	}
 

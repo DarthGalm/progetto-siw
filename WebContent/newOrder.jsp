@@ -14,14 +14,15 @@
 <h:form>
 <table>
 	<tr>
-		<th>Nome</th><th>Prezzo</th><th>Codice</th> 
+		<th>Nome</th><th>Prezzo</th><th>Codice</th><th>Quantità disponibile</th>
 	</tr>
 	
 		<c:forEach var="product" items="#{productController.inventoryCustomer}">
 		<tr>
 		<td>${product.name}</td>
-		<td>${product.price}</td>
+		<td>${product.price} €</td>
 		<td>${product.code}</td>
+		<td>${product.stockQuantity}</td>
 		</tr>
 			
 	</c:forEach>
@@ -36,16 +37,16 @@
                      id="productCode"/> <h:message for="productCode" />
 	</div>
 
-<div>Quantità: <h:inputText value="#{orderController.productQuantity}" 
+<div>Quantità: <h:inputText value="#{orderController.quantity}" 
                      required="true"
                      requiredMessage="La quantità del prodotto è un campo obbligatorio"
-                     id="productQuantity"/> <h:message for="productQuantity" />
+                     id="quantity"/> <h:message for="quantity" />
 	</div>
 	
 	<div>
-						<h:commandButton action="#{orderController.createOrder}">
-								<f:setPropertyActionListener target="#{orderController.customerEmail}" value="#{customerController.customer.email}" />
-						</h:commandButton>
+			<h:commandButton action="#{orderController.createOrder}">
+				<f:setPropertyActionListener value="#{customerController.customer.email}" target="#{orderController.customerEmail}"/>
+			</h:commandButton>
 	</div>
 </h:form>
 </f:view>

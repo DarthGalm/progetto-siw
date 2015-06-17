@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -45,6 +46,7 @@ public class Provider {
 		this.phoneNumber = phoneNumber;
 		this.vat = vat;
 		this.address = address;
+		this.catalog = new ArrayList<Product>();
 	}
 
 	

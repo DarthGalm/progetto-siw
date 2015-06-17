@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,8 +31,10 @@ public class Order {
 	public Order(){
 	}
 	
-	public Order(Date creationTime){
+	public Order(Date creationTime, Customer customer){
 		this.creationTime = creationTime;
+		this.customer = customer;
+		this.orderLines = new ArrayList<OrderLine>();
 	}
 
 	public Long getId() {
