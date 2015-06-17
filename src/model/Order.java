@@ -23,7 +23,7 @@ public class Order {
 	@ManyToOne
 	private Customer customer;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.REMOVE})
 	@JoinColumn(name="orders_id")
 	private List<OrderLine> orderLines;
 
@@ -35,6 +35,10 @@ public class Order {
 		this.creationTime = creationTime;
 		this.customer = customer;
 		this.orderLines = new ArrayList<OrderLine>();
+	}
+	
+	public void addOrderLine(OrderLine orderLine) {
+		this.orderLines.add(orderLine);
 	}
 
 	public Long getId() {

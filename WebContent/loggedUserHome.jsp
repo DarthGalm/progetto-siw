@@ -21,7 +21,9 @@
 
 <ul>
 <li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
-<li><h:commandLink action="#{productController.newOrder}" value="Effettua un nuovo ordine" /></li>
+<li><h:commandLink action="#{productController.newOrder}" value="Effettua un nuovo ordine">
+	<f:setPropertyActionListener value="#{customerController.customer}" target="#{productController.customer}"/>
+	</h:commandLink></li>
 </ul>
 
 </h:form>

@@ -28,7 +28,6 @@ public class OrderController {
 	private OrderLine orderLine;
 	private Product product;
 	private String customerEmail;
-	@ManagedProperty(value="#{sessionScope['customerController'].customer}")
 	private Customer customer;
 	
 	@EJB
@@ -43,15 +42,25 @@ public class OrderController {
 	public String createOrder() {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(quantity>product.getStockQuantity()) return "quantityError";
-//	if(productQuantity>product.getStockQuantity())
-//		return "quantityError";
-//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail);
+//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail); //ERRORE NULLPOINTER EXCEPTION	
 //	if(customer==null) return "genericError";
-	this.order = orderFacade.createOrder(quantity, product, customer);
-//	if(order==null) return "genericError";
-//	this.id = order.getId();
-//	return "orderCompleted";
-	return "test";
+	if(!FacesContext.getCurrentInstance().getExternalContext().getSessionMap().containsKey("order")) {
+	this.order = orderFacade.createOrder(customer);
+	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("order", this.order);
+/*	this.customer.addOrder(this.order); 	//ERRORE NULLPOINTER EXCEPTION */	
+	this.orderLine = orderFacade.addOrderLine(quantity, product, order);
+			}
+	else{
+		this.orderLine = orderFacade.addOrderLine(quantity, product, order);
+	}
+//	if(order==null && orderLine==null) return "genericError";
+	return "orderCompleted";
+//	return "test";
+	}
+	
+	public String closeOrder() {
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
+		return "success";
 	}
 
 	public Long getId() {

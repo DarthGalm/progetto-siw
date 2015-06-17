@@ -18,7 +18,11 @@
 
 <br />
 
- <li><h:commandButton value="Torna alla Home"  action="home"/></li>
+<div>Prodotto ordinato: ${orderController.product.name}</div>
+<div>Quantità: ${orderController.orderLine.quantity}</div>
+
+ <li><h:commandButton value="Concludi il tuo ordine"  action="#{orderController.closeOrder}"/></li>
+ <li><h:commandButton value="Compra un altro oggetto" action="newOrder"/></li>
 
 
 

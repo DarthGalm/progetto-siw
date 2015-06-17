@@ -45,7 +45,7 @@
 	
 	<div>
 			<h:commandButton action="#{orderController.createOrder}">
-				<f:setPropertyActionListener value="#{customerController.customer.email}" target="#{orderController.customerEmail}"/>
+				<f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
 			</h:commandButton>
 	</div>
 </h:form>

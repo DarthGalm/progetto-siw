@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import model.Customer;
 import model.ProductFacade;
 import model.Product;
 
@@ -22,6 +23,7 @@ public class ProductController {
 	private String description;
 	private Integer stockQuantity;
 	private Product product;
+	private Customer customer;
 	private List<Product> inventory;
 	private List<Product> inventoryCustomer;
 	
@@ -121,6 +123,14 @@ public class ProductController {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public List<Product> getInventory() {

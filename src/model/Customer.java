@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Customer {
 	@JoinColumn(name="address_fk")
 	private Address address;
 	
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer", cascade = {CascadeType.REMOVE})
 	private List<Order> orders;
 	
 	public Customer(){
@@ -41,8 +42,16 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		
+		this.orders = new ArrayList<Order>();
 	 }
+	
+	public boolean checkPassword(String password) {
+		return this.getPassword().equals(password);
+	}
+	
+	public void addOrder(Order order) {
+		this.orders.add(order);
+	}
 
 	public Long getId() {
 		return id;
@@ -106,10 +115,6 @@ public class Customer {
 
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}
-
-	public boolean checkPassword(String password) {
-		return this.getPassword().equals(password);
 	}
 	
 	@Override
