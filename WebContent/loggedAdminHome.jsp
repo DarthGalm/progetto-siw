@@ -25,10 +25,8 @@
 <ul>
 			<li><h:commandLink value="Inserisci un nuovo prodotto" action="newProduct" /></li>
 			<li><h:commandLink value="Inserisci un nuovo fornitore" action="newProvider" /></li>
-			<li>
-			<h:commandLink action="#{productController.listProducts}"
-						value="Visualizza Catalogo" />
-						</li>
+			<li><h:commandLink action="#{productController.listProducts}" value="Visualizza Catalogo" /></li>
+			<li><h:commandLink action="#{orderController.listOrders}" value="Visualizza ordini"/></li>
 			<li><h:commandLink value="Associa prodotto a fornitore" action="providerJoinProduct"/></li>
 			<li><h:commandLink value="Trova fornitori di un prodotto" action="findProvider"/></li>
  </ul>

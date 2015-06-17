@@ -24,6 +24,7 @@ public class AdminController {
 	private Product product;
 	private Provider provider;
 	private List<Provider> providers;
+	private Order order;
 	
 	@EJB
 	private LoginFacade loginFacade;
@@ -33,6 +34,9 @@ public class AdminController {
 	
 	@EJB
 	private ProviderFacade providerFacade;
+	
+	@EJB
+	private OrderFacade orderFacade;
 	
 	public String login() {
 		this.admin = loginFacade.adminLogin(email, password);
@@ -145,6 +149,22 @@ public class AdminController {
 		this.providers = providers;
 	}
 
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public OrderFacade getOrderFacade() {
+		return orderFacade;
+	}
+
+	public void setOrderFacade(OrderFacade orderFacade) {
+		this.orderFacade = orderFacade;
+	}
 
 	public ProductFacade getProductFacade() {
 		return productFacade;

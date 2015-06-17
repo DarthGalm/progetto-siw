@@ -8,7 +8,10 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
-@NamedQuery(name="retrieveOrderById", query="SELECT o FROM Order o WHERE o.id = :id")
+@NamedQueries({
+@NamedQuery(name="retrieveOrderById", query="SELECT o FROM Order o WHERE o.id = :id"),
+@NamedQuery(name = "findAllOrders", query = "SELECT o FROM Order o"),
+})
 public class Order {
 	
 	@Id 

@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJB;
@@ -29,6 +30,7 @@ public class OrderController {
 	private Product product;
 	private String customerEmail;
 	private Customer customer;
+	private List<Order> orders;
 	
 	@EJB
 	private OrderFacade orderFacade;
@@ -42,16 +44,13 @@ public class OrderController {
 	public String createOrder() {
 	this.product = productFacade.retrieveProductByCode (productCode);
 	if(quantity>product.getStockQuantity()) return "quantityError";
-//	this.customer = customerFacade.retrieveCustomerByEmail(customerEmail); //ERRORE NULLPOINTER EXCEPTION ma non serve	
-//	if(customer==null) return "genericError";
 	if(!FacesContext.getCurrentInstance().getExternalContext().getSessionMap().containsKey("order")) {
 	this.order = orderFacade.createOrder(customer);
-	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("order", this.order);
-/*	this.customer.addOrder(this.order); 	//ERRORE NULLPOINTER EXCEPTION */	
+	FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("order", this.order);	
 	this.orderLine = orderFacade.addOrderLine(quantity, product, order);
 	Integer quantityLeft=(product.getStockQuantity()-quantity);
 	product.setStockQuantity(quantityLeft);
-	productFacade.updateProduct(product); //aggiorna la q.tà nel DB ma non la mostra se ritorno a newOrder
+	productFacade.updateProduct(product); //aggiorna la q.tà nel DB 
 			}
 	else{
 		this.orderLine = orderFacade.addOrderLine(quantity, product, order);
@@ -59,14 +58,25 @@ public class OrderController {
 		product.setStockQuantity(quantityLeft);
 		productFacade.updateProduct(product); 
 	}
-//	if(order==null && orderLine==null) return "genericError";
+//	if(order==null && orderLine==null) return "genericError"; 
 	return "orderCompleted";
 //	return "test";
 	}
 	
 	public String closeOrder() {
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("order");
 		return "success";
+	}
+	
+	public String listOrders() {
+		this.orders = orderFacade.getAllOrders();
+		return "orders"; 
+	}
+	
+	public String closeOrderAdmin() {
+		this.order = orderFacade.closeOrderAdmin(id);
+		orderFacade.updateOrder(order);
+		return "completedOperation";
 	}
 
 	public Long getId() {
@@ -182,6 +192,14 @@ public class OrderController {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public OrderFacade getOrderFacade() {

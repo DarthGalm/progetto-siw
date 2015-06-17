@@ -20,7 +20,6 @@ public class OrderFacade {
 	
 	public Order createOrder(Customer customer){
 		Order order = new Order(new java.util.Date(), customer);
-//		customer.addOrder(order); //NULLPOINTER EXCEPTION!!
 		em.persist(order);
 		return order;
 		}
@@ -32,6 +31,18 @@ public class OrderFacade {
 		order.addOrderLine(orderLine);
 		em.persist(orderLine);
 		return orderLine;
+	}
+	
+	public List<Order> getAllOrders() {
+		TypedQuery<Order> query = em.createNamedQuery("findAllOrders", Order.class);
+		List <Order> orders = query.getResultList();
+		return orders;
+	}
+	
+	public Order closeOrderAdmin(Long id) {
+	    Order order = em.find(Order.class, id);
+	    order.setShippedDate(new java.util.Date());
+		return order;
 	}
 	
 	public void updateOrder(Order order) {
