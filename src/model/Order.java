@@ -11,6 +11,8 @@ import java.util.List;
 @NamedQueries({
 @NamedQuery(name="retrieveOrderById", query="SELECT o FROM Order o WHERE o.id = :id"),
 @NamedQuery(name = "findAllOrders", query = "SELECT o FROM Order o"),
+@NamedQuery(name = "findAllOrdersForCustomer", query = "SELECT o FROM Order o WHERE o.customer.id = :id"),
+@NamedQuery(name = "findAllOrderLinesForCustomer", query = "SELECT ol FROM Order o JOIN FETCH o.orderLines WHERE o.id = :id")
 })
 public class Order {
 	

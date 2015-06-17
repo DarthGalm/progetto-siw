@@ -45,6 +45,19 @@ public class OrderFacade {
 		return order;
 	}
 	
+	public List<Order> getAllOrdersCustomer(Long customerId) {
+		TypedQuery<Order> query = em.createNamedQuery("findAllOrdersForCustomer", Order.class);
+		List <Order> orders = query.setParameter("id", customerId).getResultList();
+		return orders;	
+	}
+	
+	public List<OrderLine> getAllOrderLinesCustomer(Long orderId) {
+		TypedQuery<Order> query = em.createNamedQuery("retrieveOrderById", Order.class);
+		Order order = query.setParameter("id", orderId).getSingleResult();
+		List<OrderLine> orderLines = order.getOrderLines();
+		return orderLines;	
+	}
+	
 	public void updateOrder(Order order) {
 		em.merge(order);
 	}

@@ -28,9 +28,11 @@ public class OrderController {
 	private Long totalPrice; 
 	private OrderLine orderLine;
 	private Product product;
+	private Long customerId;
 	private String customerEmail;
 	private Customer customer;
 	private List<Order> orders;
+	private List<OrderLine> orderLines;
 	
 	@EJB
 	private OrderFacade orderFacade;
@@ -77,6 +79,16 @@ public class OrderController {
 		this.order = orderFacade.closeOrderAdmin(id);
 		orderFacade.updateOrder(order);
 		return "completedOperation";
+	}
+	
+	public String listOrdersCustomer() {
+		this.orders = orderFacade.getAllOrdersCustomer(customerId);
+		return "ordersCustomer"; 
+	}
+	
+	public String getOrderDetail() {
+		this.orderLines = orderFacade.getAllOrderLinesCustomer(id);
+		return "orderDetail";
 	}
 
 	public Long getId() {
@@ -135,6 +147,14 @@ public class OrderController {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public CustomerFacade getCustomerFacade() {
@@ -200,6 +220,14 @@ public class OrderController {
 
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
+	}
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
 
 	public OrderFacade getOrderFacade() {

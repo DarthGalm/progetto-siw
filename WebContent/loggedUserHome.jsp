@@ -24,6 +24,9 @@
 <li><h:commandLink action="#{productController.newOrder}" value="Effettua un nuovo ordine">
 	<f:setPropertyActionListener value="#{customerController.customer}" target="#{productController.customer}"/>
 	</h:commandLink></li>
+<li><h:commandLink action="#{orderController.listOrdersCustomer}" value="Visualizza ordini">
+	<f:setPropertyActionListener value="#{customerController.customer.id}" target="#{orderController.customerId}"/>
+	</h:commandLink></li>
 </ul>
 
 </h:form>
